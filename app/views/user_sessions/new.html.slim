@@ -1,0 +1,18 @@
+.container
+  .row
+    h1.text-3xl.font-bold.py-3
+      = t('.title')
+    = form_with model: @user, local: true do |f|
+      .form_control
+        label.label
+          span.label-text
+            = f.label :email
+          = f.email_field :email, class: 'input input-bordered', placeholder: 'takeda@example.com'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :password
+          = f.password_field :password, class: 'input input-bordered', placeholder: 'パスワード'
+      .form_control
+        button.btn.btn-primary
+          = t('defaults.login')
