@@ -1,0 +1,48 @@
+.container
+  .row
+    h1.text-3xl.font-bold.py-3
+      | 新規登録
+    = form_with model: @user, local: true do |f|
+      .form_control
+        label.label
+          span.label-text
+            = f.label :last_name
+          = f.text_field :last_name, class: 'input input-bordered', placeholder: '姓'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :first_name
+          = f.text_field :first_name, class: 'input input-bordered', placeholder: '名'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :last_name_kana
+          = f.text_field :last_name_kana, class: 'input input-bordered', placeholder: '姓(フリガナ)'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :first_name_kana
+          = f.text_field :first_name_kana, class: 'input input-bordered', placeholder: '名(フリガナ)'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :tel
+          = f.telephone_field :tel, class: 'input input-bordered', placeholder: '電話番号(ハイフン無し)'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :email
+          = f.email_field :email, class: 'input input-bordered', placeholder: 'メールアドレス'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :password
+          = f.password_field :password, class: 'input input-bordered', placeholder: 'パスワード'
+      .form_control
+        label.label
+          span.label-text
+            = f.label :password_confirmation
+          = f.password_field :password, class: 'input input-bordered', placeholder: 'パスワード確認'
+      .form_control
+        button.btn.btn-primary
+          = '新規登録'
