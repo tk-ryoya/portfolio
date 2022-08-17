@@ -1,0 +1,10 @@
+ja:
+  defaults:
+    login: ログイン
+    register: 新規登録
+    logout: ログアウト
+    message:
+      require_login: ログインしてください
+  users:
+    new:
+      title: 会員登録
