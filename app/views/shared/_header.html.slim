@@ -1,5 +1,8 @@
 header
-  h1 矢倉小野田整骨院
+  .navbar.bg-base-100
+    .flex-1
+      .btn.btn-ghost.nomal-case.text-xl
+        = link_to t('defaults.title'), root_path
     .flex-none
       button.btn.btn-ghost.btn-sm
         = link_to t('defaults.logout'), logout_path
