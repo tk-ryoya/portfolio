@@ -1,0 +1,19 @@
+ja:
+  defaults:
+    login: ログイン
+    register: 新規登録
+    logout: ログアウト
+    message:
+      require_login: ログインしてください
+  users:
+    new:
+      title: 会員登録画面
+    create:
+      success: 新規登録が完了しました
+      fail: 新規登録に失敗しました
+  user_sessions:
+    new:
+      title: ログイン画面
+    create:
+      success: ログインしました
+      fail: ログインに失敗しました
