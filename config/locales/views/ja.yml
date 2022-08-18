@@ -17,3 +17,5 @@ ja:
     create:
       success: ログインしました
       fail: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
