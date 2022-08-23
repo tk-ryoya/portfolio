@@ -1,11 +1,15 @@
 ja:
   defaults:
     title: 矢倉小野田整骨院
+    service_name: 整骨院予約サービス
     login: ログイン
     register: 新規登録
     logout: ログアウト
     message:
       require_login: ログインしてください
+    am: 午前
+    pm: 午後
+    hp: 小野田整骨院HP
   users:
     new:
       title: 会員登録画面
@@ -20,3 +24,6 @@ ja:
       fail: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  static_pages:
+    top:
+      sub_title: 本日の空き時間
