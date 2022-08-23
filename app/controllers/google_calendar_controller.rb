@@ -1,0 +1,2 @@
+class GoogleCalendarController < ApplicationController
+end

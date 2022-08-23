@@ -7,5 +7,4 @@ header
       button.btn.btn-ghost.btn-sm
         = link_to 'マイページ(未実装)'
     .flex-none
-      button.btn.btn-ghost.btn-sm
-        = link_to t('defaults.logout'), logout_path
+      = button_to t('defaults.logout'), logout_path, method: :delete, class: 'btn btn-ghost btn-sm'
