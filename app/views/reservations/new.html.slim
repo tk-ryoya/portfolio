@@ -1,0 +1,18 @@
+.container
+  .row
+    h1.text-3xl.font-bold.py-3
+      = t('.title')
+    = form_with model: @reservation, local: true do |f|
+      .form_control
+        label.label
+          span.label-text
+            = f.label :reservation_type
+          = f.select :reservation_type, {'初診': 'first_interview', '再診': 'repeate_interview'}
+      .form_control
+        label.label
+          span.label-text
+            = f.label :reservation_datetime
+          = f.datetime_field :reservation_datetime, class: 'input input-bordered', placeholder: ''
+      .form_control
+        button.btn.btn-primary
+          = '予約'
