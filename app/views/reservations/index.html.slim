@@ -1,12 +1,24 @@
-.hero.min-h-screen
-  /[style="background-image: url(https://placeimg.com/1000/800/arch);"]
+.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/arch);"]
   .hero-overlay.bg-opacity-60
   .hero-content.text-center.text-neutral-content
     .max-w-md
       h1.mb-5.text-5xl.font-bold
         | 予約履歴
-      p.mb-5
-        - @reservations.each do |reservation|
-          = reservation.id
-          = reservation.reservation_type
-          = reservation.reservation_datetime
+      .overflow-x-auto
+        table.table.w-full
+          thead
+            tr
+              th
+                | ID
+              th
+                | 予約種類
+              th
+                | 予約日時
+          tbody
+          - @reservations.each do |reservation|
+            tr
+              td = reservation.id
+              td = reservation.reservation_type
+              td = reservation.reservation_datetime
+          p.mb-5.text-3xl
+
