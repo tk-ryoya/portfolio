@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post   'login',  to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  get 'oauth2callback', to: 'calendars#callback'
+
   resources :users, only: %i[new create]
   resources :reservations
 end
