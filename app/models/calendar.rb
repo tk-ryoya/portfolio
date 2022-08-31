@@ -3,20 +3,6 @@ class Calendar
 
   require "googleauth/stores/file_token_store"
 
-  # The file token.yaml stores the user's access and refresh tokens, and is
-  # created automatically when the authorization flow completes for the first
-  # time.
-
-
-
-  ##
-  # Ensure valid credentials, either by restoring from the saved credentials
-  # files or intitiating an OAuth2 authorization. If authorization is required,
-  # the user's default browser will be launched to approve the request.
-  #
-  # @return [Google::Auth::UserRefreshCredentials] OAuth2 credentials
-
-
   def authorize
     # 環境変数の定義
     uri = ENV["OOB_URI"]
@@ -50,13 +36,10 @@ class Calendar
           credentials = authorizer.get_and_store_credentials_from_code(
           user_id: user_id, code: code, base_url: uri
           )
-
-
-
       end
       credentials
   end
-  # Initialize the API
+
   def initialize
       @service = Google::Apis::CalendarV3::CalendarService.new
       @service.client_options.application_name = ENV["APPLICATION_NAME"]
