@@ -5,4 +5,9 @@ class Reservation < ApplicationRecord
 
   validates :reservation_type, presence: true
   validates :reservation_datetime, presence: true
+
+  def delete!
+    self.deleted_at = Time.now
+    save!
+  end
 end
