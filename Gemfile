@@ -48,17 +48,22 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# slim用
 gem 'slim-rails'
 gem 'html2slim'
 
+# i18n対応用
 gem 'rails-i18n'
 gem 'enum_help'
 
+# Tailwind、daisyUI用
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
+# ログイン機能用
 gem 'sorcery'
 
+# GoogleCalendarAPI用
 gem 'google-api-client'
 gem 'googleauth'
 gem 'google-apis-calendar_v3'
@@ -74,6 +79,10 @@ group :development, :test do
   gem 'rubocop-rails', require: false
 
   gem 'annotate'
+
+  # 環境変数管理用
+  gem 'dotenv-rails'
+
 end
 
 group :development do

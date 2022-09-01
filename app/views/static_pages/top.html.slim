@@ -5,29 +5,30 @@
     = t('.sub_title')
     <br>
     = I18n.l Date.today, format: :long
-  .hero.min-h-screen.bg-base-200
-    .hero-content.text-center
-      .max-w-md
-        h1.text-6xl.font-bold
-          = t('defaults.am')
-        p.py-6.text-5xl
-          |
-            9:00〜 ○<br>
-            10:00〜 △<br>
-            11:00〜 ◎<br>
   .hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/arch);"]
     .hero-overlay.bg-opacity-60
     .hero-content.text-center.text-neutral-content
       .max-w-md
-        h1.text-6xl.font-bold
+        h1.my-10.text-5xl.font-bold
+          = t('defaults.am')
+        .card.w-96.bg-base-100.shadow-xl
+          .card-body
+            p.py-6.text-5xl
+              |
+                9:00〜 ○<br>
+                10:00〜 △<br>
+                11:00〜 ◎<br>
+        h1.my-10.text-5xl.font-bold
           = t('defaults.pm')
-        p.py-6.text-5xl
-          |
-            16:00〜 ○<br>
-            17:00〜 △<br>
-            18:00〜 ◎<br>
-  .card.w-96.bg-base-100.shadow-xl
-    .card-body
-      .link.link-primary.text-3xl.pb-8
-        a href="http://www.onoda-seikotsu.com"
-        = t('defaults.hp')
+        .card.w-96.bg-base-100.shadow-xl
+          .card-body
+            p.py-6.text-5xl
+              |
+                16:00〜 ○<br>
+                17:00〜 △<br>
+                18:00〜 ◎<br>
+        .card.w-96.bg-base-100.shadow-xl.my-10
+          .card-body
+            .link.link-primary.text-2xl
+              a href="http://www.onoda-seikotsu.com"
+              = t('defaults.hp')

@@ -1,10 +1,14 @@
 header
-  .navbar.bg-base-100
-    .flex-1
+  .navbar.bg-base-100.mb-10
+    .navbar-start
       .btn.btn-ghost.nomal-case.text-xl
         = link_to t('defaults.title'), root_path
-    .flex-none
-      button.btn.btn-ghost.btn-sm
-        = link_to 'マイページ(未実装)'
-    .flex-none
-      = button_to t('defaults.logout'), logout_path, method: :delete, class: 'btn btn-ghost btn-sm'
+    .navbar-end
+      .flex-none.mx-2
+        = link_to '新規予約(電話)', '', class: 'btn btn-success'
+      .flex-none.mx-2
+        = link_to '新規予約(Web)', new_reservation_path, class: 'btn btn-success'
+      .flex-none.mx-2
+        = link_to '予約履歴', reservations_path, class: 'btn btn-info'
+      .flex-none.mx-2
+        = button_to t('defaults.logout'), logout_path, method: :delete, class: 'btn btn-error'

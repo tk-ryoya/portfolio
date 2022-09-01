@@ -35,6 +35,8 @@
 
 /node_modules
 
-.DS_Store
+/.DS_Store
 
-service_account_json_key.json
+/.env
+
+/token.yaml

@@ -1,0 +1,23 @@
+.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/arch);"]
+  .hero-overlay.bg-opacity-60
+  .hero-content.text-center.text-neutral-content
+    .max-w-[100%]
+      h1.mb-5.text-5xl.font-bold
+        | 予約履歴
+      .overflow-x-auto
+        table.table.w-full
+          thead
+            tr.text-center
+              th
+                | 予約種類
+              th
+                | 予約日時
+              th
+                | 変更/キャンセル
+          tbody
+          - if @reservation.deleted_at.nil?
+            - @reservations.each do |reservation|
+              tr.text-center
+                td = reservation.reservation_type
+                td = reservation.reservation_datetime
+                td = link_to '詳細', reservation_path(@reservation), class: 'btn btn-success'
