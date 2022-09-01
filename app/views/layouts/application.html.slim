@@ -9,13 +9,10 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body
+    = render 'shared/flash_message'
     - if logged_in?
       = render 'shared/header'
     - else
       = render 'shared/before_login_header'
-    = render 'shared/flash_message'
     = yield
-    - if logged_in?
-      = render 'shared/footer'
-    - else
-      = render 'shared/before_login_footer'
+    = render 'shared/footer'
