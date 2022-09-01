@@ -15,10 +15,11 @@
               th
                 | 予約日時
           tbody
-          - @reservations.each do |reservation|
-            tr
-              td = reservation.id
-              td = reservation.reservation_type
-              td = reservation.reservation_datetime
+          - if @reservation.deleted_at.nil?
+            - @reservations.each do |reservation|
+              tr
+                td = reservation.id
+                td = reservation.reservation_type
+                td = reservation.reservation_datetime
           p.mb-5.text-3xl
 

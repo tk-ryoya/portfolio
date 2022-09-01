@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
+    @reservation = @reservations.find_by(user_id: current_user)
   end
 
   def new
