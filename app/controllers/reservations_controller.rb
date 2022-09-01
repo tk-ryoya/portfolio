@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = current_user.reservations.build(reservation_params)
     if @reservation.save
-      redirect_to reservations_path, '予約しました'
+      redirect_to reservations_path, success: '予約しました'
     else
       flash.now[:error] = '予約に失敗しました'
     end
@@ -21,8 +21,13 @@ class ReservationsController < ApplicationController
     @reservation = current_user.reservations.find(params[:id])
   end
 
-  def edit
+  def update
     @reservation = current_user.reservations.find(params[:id])
+    if @reservation.update(reservation_params)
+      redirect_to reservations_path, success: '予約変更しました'
+    else
+      flash.now[:error] = '予約変更に失敗しました'
+    end
   end
 
   def delete
