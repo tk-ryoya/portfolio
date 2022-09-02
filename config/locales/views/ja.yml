@@ -10,6 +10,9 @@ ja:
     am: 午前
     pm: 午後
     hp: 小野田整骨院HP
+    history: 予約履歴
+    tel_reservation: 新規予約(電話)
+    web_reservation: 新規予約(Web)
   users:
     new:
       title: 会員登録画面
@@ -27,3 +30,9 @@ ja:
   static_pages:
     top:
       sub_title: 本日の空き時間
+  reservations:
+    index:
+      details: 詳細
+    show:
+      change: 変更
+      cancel: キャンセル

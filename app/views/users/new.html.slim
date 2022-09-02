@@ -1,4 +1,4 @@
-.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/arch);"]
+.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
   .hero-overlay.bg-opacity-60
   .hero-content.text-center.text-neutral-content
     .max-w-md
@@ -11,42 +11,42 @@
               label.label
                 span.label-text
                   = f.label :last_name
-                = f.text_field :last_name, class: 'input input-bordered', placeholder: '武田'
+                = f.text_field :last_name, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :first_name
-                = f.text_field :first_name, class: 'input input-bordered', placeholder: '凌也'
+                = f.text_field :first_name, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :last_name_kana
-                = f.text_field :last_name_kana, class: 'input input-bordered', placeholder: 'タケダ'
+                = f.text_field :last_name_kana, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :first_name_kana
-                = f.text_field :first_name_kana, class: 'input input-bordered', placeholder: 'リョウヤ'
+                = f.text_field :first_name_kana, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :tel
-                = f.telephone_field :tel, class: 'input input-bordered', placeholder: '08012345678'
+                = f.telephone_field :tel, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :email
-                = f.email_field :email, class: 'input input-bordered', placeholder: 'takeda@example.com'
+                = f.email_field :email, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :password
-                = f.password_field :password, class: 'input input-bordered', placeholder: 'パスワード'
+                = f.password_field :password, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :password_confirmation
-                = f.password_field :password_confirmation, class: 'input input-bordered', placeholder: 'パスワード確認'
+                = f.password_field :password_confirmation, class: 'input input-bordered', placeholder: true
             .form_control
               button.btn.btn-primary.btn-wide
                 = t('defaults.register')

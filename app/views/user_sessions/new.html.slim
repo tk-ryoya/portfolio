@@ -1,4 +1,4 @@
-.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/arch);"]
+.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
   .hero-overlay.bg-opacity-60
   .hero-content.text-center.text-neutral-content
     .max-w-md
@@ -10,13 +10,13 @@
             .form_control
               label.label
                 span.label-text
-                  = f.label :email
-                = f.email_field :email, class: 'input input-bordered', placeholder: 'takeda@example.com'
+                  = f.label :email, User.human_attribute_name('email')
+                = f.email_field :email, class: 'input input-bordered', placeholder: User.human_attribute_name('email')
             .form_control
               label.label
                 span.label-text
-                  = f.label :password
-                = f.password_field :password, class: 'input input-bordered', placeholder: 'パスワード'
+                  = f.label :password, User.human_attribute_name('password')
+                = f.password_field :password, class: 'input input-bordered', placeholder: User.human_attribute_name('password')
             .form_control
               button.btn.btn-primary.btn-wide
                 = t('defaults.login')
