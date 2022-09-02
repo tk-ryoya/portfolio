@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 会員
+      reservation: 予約
     attributes:
       user:
         last_name: 姓
@@ -12,3 +13,21 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+      reservation:
+        reservation_type: 予約種類
+        reservation_datetime: 予約日時
+        change_and_cancel: 変更/キャンセル
+  helpers:
+    placeholder:
+      user:
+        last_name: 武田
+        first_name: 凌也
+        last_name_kana: タケダ
+        first_name_kana: リョウヤ
+        tel: 08012345678
+        email: takeda@example.com
+  enums:
+    reservation:
+      reservation_type:
+        first_interview: 初診
+        repeate_interview: 再診
