@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_064705) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_234521) do
+  create_table "first_interviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "injury_date", null: false
+    t.integer "injury_position", default: 0, null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "repeate_interviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "condition", default: 0, null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservation_interviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.string "interviewable_type"
+    t.bigint "interviewable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interviewable_type", "interviewable_id"], name: "index_reservation_interviews_on_interviewable"
+    t.index ["reservation_id"], name: "index_reservation_interviews_on_reservation_id"
+  end
+
   create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "reservation_type", default: 0, null: false
@@ -36,5 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_064705) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "reservation_interviews", "reservations"
   add_foreign_key "reservations", "users"
 end

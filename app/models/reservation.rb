@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :user
+  has_one :reservation_interviews
 
   enum reservation_type: { first_interview: 0, repeate_interview: 1 }
 
