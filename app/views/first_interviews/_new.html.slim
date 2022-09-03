@@ -1,0 +1,59 @@
+.max-w-md
+  = form_with model: @first_interview, local: true do |f|
+    .card.w-96.bg-base-100.shadow-xl
+      .card-body
+        .my-3
+          | いつから痛いですか？
+        .form_control
+          label.label
+            span.label-text
+              = f.label :injury_date
+            = f.date_field :injury_date, class: 'input input-bordered', placeholder: true
+        .my-3
+          | どこが痛いですか？
+        .form_control
+          label.label
+            span.label-text
+              = f.label :injury_position
+            = f.select :injury_position, FirstInterview.injury_positions_i18n.invert
+        .my-3
+          | その他何かあれば
+        .form_control
+          label.label
+            span.label-text
+              = f.label :description
+            = f.text_field :description, class: 'input input-bordered', placeholder: true
+
+/.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
+/  .hero-overlay.bg-opacity-60
+/  .hero-content.text-center.text-neutral-content
+/    .max-w-md
+/      h1.mb-5.text-5xl.font-bold
+/        = t('.title')
+/      = form_with model: @first_interview, local: true do |f|
+/        .card.w-96.bg-base-100.shadow-xl
+/          .card-body
+/            .my-3
+/              | いつから痛いですか？
+/            .form_control
+/              label.label
+/                span.label-text
+/                  = f.label :injury_date
+/                = f.date_field :injury_date, class: 'input input-bordered', placeholder: true
+/            .my-3
+/              | どこが痛いですか？
+/            .form_control
+/              label.label
+/                span.label-text
+/                  = f.label :injury_position
+/                = f.select :injury_position, FirstInterview.injury_positions_i18n.invert
+/            .my-3
+/              | その他何かあれば
+/            .form_control
+/              label.label
+/                span.label-text
+/                  = f.label :description
+/                = f.text_field :description, class: 'input input-bordered', placeholder: true
+/            .form_control
+/              button.btn.btn-primary.btn-wide
+/                = Reservation.model_name.human

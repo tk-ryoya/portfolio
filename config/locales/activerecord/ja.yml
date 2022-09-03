@@ -17,6 +17,10 @@ ja:
         reservation_type: 予約種類
         reservation_datetime: 予約日時
         change_and_cancel: 変更/キャンセル
+      first_interview:
+        injury_date: 負傷日
+        injury_position: 負傷部位
+        description: その他
   helpers:
     placeholder:
       user:
@@ -31,3 +35,10 @@ ja:
       reservation_type:
         first_interview: 初診
         repeate_interview: 再診
+    first_interview:
+      injury_position:
+        neck_shoulder: 首・肩
+        waist_back: 腰・背中
+        arm_hand: 腕・手
+        chest_abdomen: 胸・お腹
+        leg: 脚

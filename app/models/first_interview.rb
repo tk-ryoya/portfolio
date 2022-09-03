@@ -1,5 +1,5 @@
 class FirstInterview < ApplicationRecord
-  has_many :reservation_interviews, as: :interviewable
+  has_one :reservation_interviews, as: :interviewable
 
   enum injury_position: {
     neck_shoulder: 0,
