@@ -1,8 +1,8 @@
 .hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
   .hero-overlay.bg-opacity-60
   .hero-content.text-center.text-neutral-content
-    .max-w-md
-      h1.mb-5.text-5xl.font-bold
+    .max-w-md.my-10
+      h1.mb-10.text-5xl.font-bold
         = t('defaults.web_reservation')
       = form_with model: @reservation, local: true do |f|
         .card.w-96.bg-base-100.shadow-xl
@@ -16,7 +16,11 @@
               label.label
                 span.label-text
                   = f.label :reservation_datetime
-                = f.datetime_field :reservation_datetime, class: 'input input-bordered', placeholder: ''
+                = f.datetime_field :reservation_datetime, class: 'input input-bordered', placeholder: true
+          / もしセレクトボックスで初診が選択されたら
+          = render 'first_interviews/new'
+          / もしセレクトボックスで再診が選択されたら
+          = render 'repeate_interviews/new'
             .form_control
               button.btn.btn-primary.btn-wide
                 = Reservation.model_name.human

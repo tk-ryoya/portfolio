@@ -21,6 +21,9 @@ ja:
         injury_date: 負傷日
         injury_position: 負傷部位
         description: その他
+      repeate_interview:
+        condition: 負傷部位の調子
+        description: その他
   helpers:
     placeholder:
       user:
@@ -42,3 +45,8 @@ ja:
         arm_hand: 腕・手
         chest_abdomen: 胸・お腹
         leg: 脚
+    repeate_interview:
+      condition:
+        nomal: 普通
+        good: 良い
+        bad: 悪い

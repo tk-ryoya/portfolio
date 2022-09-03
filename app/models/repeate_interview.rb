@@ -1,5 +1,5 @@
 class RepeateInterview < ApplicationRecord
-  has_many :reservation_interviews, as: :interviewable
+  has_one :reservation_interviews, as: :interviewable
 
   enum condition: { nomal: 0, good: 1, bad: 2 }
 

@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   delete '/reservations/:id', to: 'reservations#delete'
 
   resources :first_interviews, only: [:new, :create]
+  resources :repeate_interviews, only: [:new, :create]
 end

@@ -6,6 +6,8 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = current_user.reservations.build
+    @first_interview = FirstInterview.new
+    @repeate_interview = RepeateInterview.new
   end
 
   def create
