@@ -4,7 +4,7 @@
     .max-w-md
       h1.mb-5.text-5xl.font-bold
         = t('.title')
-      = form_with model: @repeate_interview, local: true do |f|
+      = form_with model: [@reservation, @repeate_interview], local: true do |f|
         .card.w-96.bg-base-100.shadow-xl
           .card-body
             .my-3
