@@ -10,8 +10,10 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.build(reservation_params)
-    if @reservation.save
-      redirect_to reservations_path, success: '予約しました'
+    if @reservation.save && @reservation.reservation_type === 'first_interview'
+      redirect_to new_reservation_first_interview_path(@reservation), success: '初診予約フォーム'
+    elsif @reservation.save && @reservation.reservation_type === 'repeate_interview'
+      redirect_to new_reservation_repeate_interview_path(@reservation), success: '再診予約フォーム'
     else
       flash.now[:error] = '予約に失敗しました'
     end
