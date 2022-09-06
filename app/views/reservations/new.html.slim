@@ -17,10 +17,6 @@
                 span.label-text
                   = f.label :reservation_datetime
                 = f.datetime_field :reservation_datetime, class: 'input input-bordered', placeholder: true
-          / もしセレクトボックスで初診が選択されたら
-          = render 'first_interviews/new'
-          / もしセレクトボックスで再診が選択されたら
-          = render 'repeate_interviews/new'
             .form_control
               button.btn.btn-primary.btn-wide
-                = Reservation.model_name.human
+                = t('.button')

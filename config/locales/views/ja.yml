@@ -11,7 +11,7 @@ ja:
     pm: 午後
     hp: 小野田整骨院HP
     history: 予約履歴
-    tel_reservation: 新規予約(電話)
+    tel_reservation: 新規予約(電話) 準備中
     web_reservation: 新規予約(Web)
   users:
     new:
@@ -36,3 +36,5 @@ ja:
     show:
       change: 変更
       cancel: キャンセル
+    new:
+      button: 入力フォームへ
