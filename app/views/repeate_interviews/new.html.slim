@@ -1,0 +1,26 @@
+.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
+  .hero-overlay.bg-opacity-60
+  .hero-content.text-center.text-neutral-content
+    .max-w-md
+      h1.mb-5.text-5xl.font-bold
+        = t('.title')
+      = form_with model: @repeate_interview, local: true do |f|
+        .card.w-96.bg-base-100.shadow-xl
+          .card-body
+            .my-3
+              | 調子はどうですか？
+            .form_control
+              label.label
+                span.label-text
+                  = f.label :condition
+                = f.select :condition, RepeateInterview.conditions_i18n.invert
+            .my-3
+              | その他何かあれば
+            .form_control
+              label.label
+                span.label-text
+                  = f.label :description
+                = f.text_field :description, class: 'input input-bordered', placeholder: true
+            .form_control
+              button.btn.btn-primary.btn-wide
+                = Reservation.model_name.human

@@ -38,3 +38,9 @@ ja:
       cancel: キャンセル
     new:
       button: 入力フォームへ
+  first_interviews:
+    new:
+      title: 初診予約フォーム
+  repeate_interviews:
+    new:
+      title: 再診予約フォーム
