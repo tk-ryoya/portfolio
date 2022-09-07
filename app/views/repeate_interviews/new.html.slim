@@ -8,14 +8,14 @@
         .card.w-96.bg-base-100.shadow-xl
           .card-body
             .my-3
-              | 調子はどうですか？
+              = t('.condition_question')
             .form_control
               label.label
                 span.label-text
                   = f.label :condition
                 = f.select :condition, RepeateInterview.conditions_i18n.invert
             .my-3
-              | その他何かあれば
+              = t('defaults.description_title')
             .form_control
               label.label
                 span.label-text

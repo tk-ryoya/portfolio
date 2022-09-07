@@ -13,6 +13,7 @@ ja:
     history: 予約履歴
     tel_reservation: 新規予約(電話) 準備中
     web_reservation: 新規予約(Web)
+    description_title: その他何かあれば
   users:
     new:
       title: 会員登録画面
@@ -34,13 +35,30 @@ ja:
     index:
       details: 詳細
     show:
+      title: 予約詳細
       change: 変更
       cancel: キャンセル
     new:
       button: 入力フォームへ
+    create:
+      fail: 予約に失敗しました
+    update:
+      success: 予約を変更しました
+      fail: 予約の変更に失敗しました
+    delete:
+      success: 予約をキャンセルしました
   first_interviews:
     new:
       title: 初診予約フォーム
+      injury_date_question: いつから痛いですか？
+      injury_position_question: どこが痛いですか？
+    create:
+      success: 予約しました
+      fail: 予約に失敗しました
   repeate_interviews:
     new:
       title: 再診予約フォーム
+      condition_question: 調子はどうですか？
+    create:
+      success: 予約しました
+      fail: 予約に失敗しました
