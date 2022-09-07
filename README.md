@@ -50,5 +50,6 @@ README〜ER図作成：8/15 〆切
 ## ■ER図
 [ER図](https://drive.google.com/file/d/1MEeGrhqYNBva60VBbOu_os8BxVPLskod/view?usp=sharing)
 
-![ReservationService-ページ1 drawio](https://user-images.githubusercontent.com/94113387/188033682-a6f1b255-091a-4aac-ab9d-bd301adb0d7a.png)
+![ReservationService-ページ1 drawio](https://user-images.githubusercontent.com/94113387/188761434-2919d310-157e-4d06-8702-1482e4074481.png)
+
 
