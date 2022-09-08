@@ -39,4 +39,4 @@
 
 /.env
 
-/token.yaml
+credentials.json

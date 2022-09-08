@@ -1,59 +1,94 @@
 class Calendar
   include ActiveModel::Model
 
-  require "googleauth/stores/file_token_store"
+  def initialize
+    @service = Google::Apis::CalendarV3::CalendarService.new
+    @service.client_options.application_name = ENV["APPLICATION_NAME"]
+    @service.authorization = authorize
+    @calendar_id = ENV["CALENDAR_ID"]
+  end
 
   def authorize
-    # 環境変数の定義
-    uri = ENV["OOB_URI"]
-    user_id = ENV["MAIL"]
+    authorizer = Google::Auth::ServiceAccountCredentials.make_creds(
+      json_key_io: File.open(ENV["CLIENT_SECRET_PATH"]),
+      scope: Google::Apis::CalendarV3::AUTH_CALENDAR)
+    authorizer.fetch_access_token!
+    authorizer
+  end
 
-      secret_hash = {
-        "web" => {
-          "client_id"     => ENV["CLIENT_ID"],
-          "project_id" => ENV["PROJECT_ID"],
-          "auth_uri" => ENV["AUTH_URI"],
-          "token_uri" => ENV["TOKEN_URI"],
-          "auth_provider_x509_cert_url" => ENV["PROVIDER_URI"],
-          "client_secret" => ENV["CLIENT_SECRET"],
-          "redirect_uris" => [ENV["REDIRECT_URIS"]],
-          "javascript_origins" => [ENV["JAVASCRIPT_ORIGINS"]]
-        }
+  def puts_event(event)
+    puts "Summary:  #{event.summary}"
+    puts "Location: #{event.location}"
+    puts "ID:       #{event.id}"
+    puts "Start:    #{event.start.date_time}"
+    puts "End:      #{event.end.date_time}"
+  end
+
+  def set_event(summary, description, location, start_time, end_time)
+    Google::Apis::CalendarV3::Event.new({
+        summary: summary,
+        description: description,
+        location: location,
+        start: Google::Apis::CalendarV3::EventDateTime.new(
+          date_time: start_time
+        ),
+        end: Google::Apis::CalendarV3::EventDateTime.new(
+          date_time: end_time
+        )
       }
-      # herokuの環境的に環境変数から読み込んだほうが良い
-      client_id = Google::Auth::ClientId.from_hash secret_hash
-      token_store = Google::Auth::Stores::FileTokenStore.new file: "token.yaml"
-      authorizer = Google::Auth::UserAuthorizer.new client_id, Google::Apis::CalendarV3::AUTH_CALENDAR_READONLY, token_store
-
-      credentials = authorizer.get_credentials user_id
-
-      if !credentials
-          url = authorizer.get_authorization_url base_url: uri
-          puts "Open the following URL in the browser and enter the " \
-              "resulting code after authorization:\n" + url
-          code = ENV["CODE"]
-
-          credentials = authorizer.get_and_store_credentials_from_code(
-          user_id: user_id, code: code, base_url: uri
-          )
-      end
-      credentials
+    )
   end
 
-  def initialize
-      @service = Google::Apis::CalendarV3::CalendarService.new
-      @service.client_options.application_name = ENV["APPLICATION_NAME"]
-      @service.authorization = authorize
+  def create
+    event = set_event(
+      'inserted test event',
+      'test event',
+      'test',
+      DateTime.new(2020, 8, 23, 12),
+      DateTime.new(2020, 8, 23, 15)
+    )
+
+    response =  @service.insert_event(
+      @calendar_id,
+      event
+    )
+
+    puts_event(response)
   end
 
-  def fetch_events
-      calendar_id = ENV["CALENDAR_ID"]
-      now = DateTime.now + 1
-      response = @service.list_events(calendar_id,
-                                  max_results:   5,
-                                  single_events: true,
-                                  order_by:      "startTime",
-                                  time_min:      DateTime.new(now.year,now.month,now.day,0,0,0),
-                                  time_max:      DateTime.new(now.year,now.month,now.day,23,59,59) )
+  def read
+    events = @service.list_events(@calendar_id,
+                                  time_min: (Time.new(2020, 1, 1)).iso8601,
+                                  time_max: (Time.new(2020, 12, 1)).iso8601,
+                                 )
+    events.items.each do |event|
+      puts '-------------------------------'
+      puts_event(event)
+    end
+  end
+
+  def update(event_id)
+    event = set_event(
+      'updated test event',
+      'updated test event',
+      'updated',
+      DateTime.new(2020, 8, 24, 12),
+      DateTime.new(2020, 8, 24, 15)
+    )
+
+    response =  @service.update_event(
+      @calendar_id,
+      event_id,
+      event
+    )
+
+    puts_event(response)
+  end
+
+  def delete(event_id)
+    @service.delete_event(
+      @calendar_id,
+      event_id
+    )
   end
 end
