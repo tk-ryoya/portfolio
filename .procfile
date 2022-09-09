@@ -1,2 +1,2 @@
 release: bin/rails db:migrate
-echo ${GOOGLE_CREDENTIALS} > /app/credentials.json
+echo ${GOOGLE_CREDENTIALS} > /app/google-credentials.json
