@@ -1,7 +1,7 @@
 ja:
   defaults:
     title: 矢倉小野田整骨院
-    service_name: 整骨院予約サービス
+    service_name: 診療予約
     login: ログイン
     register: 新規登録
     logout: ログアウト
@@ -30,7 +30,7 @@ ja:
       success: ログアウトしました
   static_pages:
     top:
-      sub_title: 本日の空き時間
+      sub_title: 本日の空き状況
   reservations:
     index:
       details: 詳細
