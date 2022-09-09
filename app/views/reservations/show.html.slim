@@ -3,7 +3,7 @@
   .hero-content.text-center.text-neutral-content
     .max-w-md.mb-20
       h1.mb-5.text-5xl.font-bold.my-20
-        | 予約詳細
+        = t('.title')
       .overflow-x-auto
         table.table.w-full
           thead
@@ -28,7 +28,7 @@
               label.label
                 span.label-text
                   = f.label :reservation_datetime
-                = f.datetime_field :reservation_datetime, class: 'input input-bordered', placeholder: ''
+                = f.datetime_field :reservation_datetime, class: 'input input-bordered'
             .form_control
               .flex-none
                 = button_to t('.change'), reservation_path(@reservation), method: :patch, class: 'btn btn-warning btn-wide'

@@ -8,9 +8,9 @@ class FirstInterviewsController < ApplicationController
     @first_interview = FirstInterview.create(first_interview_params)
     @first_reservation = @first_interview.reservation_interviews.build(reservation_id: params[:reservation_id])
     if @first_reservation.save
-      redirect_to reservations_path, success: '予約しました'
+      redirect_to reservations_path, success: t('.success')
     else
-      flash.now[:error] = '予約に失敗しました'
+      flash.now[:error] = t('.fail')
       render :new
     end
   end

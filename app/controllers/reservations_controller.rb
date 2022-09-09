@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.order(reservation_datetime: :desc)
     @reservation = @reservations.find_by(user_id: current_user)
   end
 
@@ -10,12 +10,12 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.build(reservation_params)
-    if @reservation.save && @reservation.reservation_type === 'first_interview'
-      redirect_to new_reservation_first_interview_path(@reservation), success: '初診予約フォーム'
-    elsif @reservation.save && @reservation.reservation_type === 'repeate_interview'
-      redirect_to new_reservation_repeate_interview_path(@reservation), success: '再診予約フォーム'
+    if @reservation.save && @reservation.first_interview?
+      redirect_to new_reservation_first_interview_path(@reservation), success: t('first_interviews.new.title')
+    elsif @reservation.save && @reservation.repeate_interview?
+      redirect_to new_reservation_repeate_interview_path(@reservation), success: t('repeate_interviews.new.title')
     else
-      flash.now[:error] = '予約に失敗しました'
+      flash.now[:error] = t('.fail')
     end
   end
 
@@ -26,16 +26,16 @@ class ReservationsController < ApplicationController
   def update
     @reservation = current_user.reservations.find(params[:id])
     if @reservation.update(reservation_params)
-      redirect_to reservations_path, success: '予約変更しました'
+      redirect_to reservations_path, success: t('.success')
     else
-      flash.now[:error] = '予約変更に失敗しました'
+      flash.now[:error] = t('.fail')
     end
   end
 
   def delete
     @reservation = current_user.reservations.find(params[:id])
     @reservation.delete!
-    redirect_to reservations_path, success: '予約キャンセルしました'
+    redirect_to reservations_path, success: t('.success')
   end
 
   private
