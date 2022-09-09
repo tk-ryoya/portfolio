@@ -13,22 +13,29 @@
           = t('defaults.am')
         .card.w-96.bg-base-100.shadow-xl
           .card-body
-            p.py-6.text-5xl
-              |
-                9:00〜 ○<br>
-                10:00〜 △<br>
-                11:00〜 ◎<br>
+            p.py-3.text-5xl 9:00〜10:00
+            .mb-5.text-5xl
+              = @calendar.reservations_available_time_09_10
+            p.py-3.text-5xl 10:00〜11:00
+            .mb-5.text-5xl
+              = @calendar.reservations_available_time_10_11
+            p.py-3.text-5xl 11:00〜12:00
+            .mb-5.text-5xl
+              = @calendar.reservations_available_time_11_12
         h1.my-10.text-5xl.font-bold
           = t('defaults.pm')
         .card.w-96.bg-base-100.shadow-xl
           .card-body
-            p.py-6.text-5xl
-              |
-                16:00〜 ○<br>
-                17:00〜 △<br>
-                18:00〜 ◎<br>
+            p.py-3.text-5xl 16:00〜17:00
+            .mb-5.text-5xl
+              = @calendar.reservations_available_time_16_17
+            p.py-3.text-5xl 17:00〜18:00
+            .mb-5.text-5xl
+              = @calendar.reservations_available_time_17_18
+            p.py-3.text-5xl 18:00〜19:00
+            .mb-5.text-5xl
+              = @calendar.reservations_available_time_18_19
         .card.w-96.bg-base-100.shadow-xl.my-10
           .card-body
             .link.link-primary.text-2xl
-              a href="http://www.onoda-seikotsu.com"
-              = t('defaults.hp')
+              = link_to t('defaults.hp'), "http://www.onoda-seikotsu.com", target: :_blank, rel: "noopener noreferrer"
