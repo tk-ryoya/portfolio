@@ -27,12 +27,12 @@ ja:
   helpers:
     placeholder:
       user:
-        last_name: 武田
-        first_name: 凌也
-        last_name_kana: タケダ
-        first_name_kana: リョウヤ
+        last_name: 琵琶湖
+        first_name: 太郎
+        last_name_kana: ビワコ
+        first_name_kana: タロウ
         tel: 08012345678
-        email: takeda@example.com
+        email: biwako@example.com
   enums:
     reservation:
       reservation_type:
