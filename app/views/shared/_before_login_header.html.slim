@@ -1,10 +1,10 @@
 header
+  .navbar.bg-base-100
+    .btn.btn-outline.btn-info.nomal-case.text-5xl
+      = link_to t('defaults.title'), root_path
   .navbar.bg-base-100.mb-10
-    .navbar-start
-      .btn.btn-ghost.nomal-case.text-5xl
-        = link_to t('defaults.title'), root_path
-    .navbar-end
-      .flex-none.mx-2
-        = link_to t('defaults.register'), new_user_path, class: 'btn btn-success'
-      .flex-none.mx-2
-        = link_to t('defaults.login'), login_path, class: 'btn btn-info'
+    .md:flex
+      .mx-2
+        = link_to t('defaults.register'), new_user_path, class: 'btn btn-success sm:btn-sm md:btn-md lg:btn-lg w-full'
+      .mx-2
+        = link_to t('defaults.login'), login_path, class: 'btn btn-info sm:btn-sm md:btn-md lg:btn-lg w-full'
