@@ -94,87 +94,87 @@ class Calendar
     )
   end
 
-  def fetch_events(set_time)
-      calendar_id = ENV["CALENDAR_ID"]
-      now = Time.current
-      start_time = set_time
-      end_time = set_time + 1
-      response = @service.list_events(calendar_id,
-                                  single_events: true,
-                                  order_by:      "startTime",
-                                  time_min:      Time.new(now.year,now.month,now.day,start_time,0,0).iso8601,
-                                  time_max:      Time.new(now.year,now.month,now.day,end_time,0,0).iso8601 )
-  end
-
-  def reservations_available_time_09_10
-    response = self.fetch_events(9)
-    if response.items.empty?
-      result = '◎'
-    elsif response.items.count == 4
-      result = '△'
-    else
-      result = '○'
-    end
-    result
-  end
-
-  def reservations_available_time_10_11
-    response = self.fetch_events(10)
-    if response.items.empty?
-      result = '◎'
-    elsif response.items.count == 4
-      result = '△'
-    else
-      result = '○'
-    end
-    result
-  end
-
-  def reservations_available_time_11_12
-    response = self.fetch_events(11)
-    if response.items.empty?
-      result = '◎'
-    elsif response.items.count == 4
-      result = '△'
-    else
-      result = '○'
-    end
-    result
-  end
-
-  def reservations_available_time_16_17
-    response = self.fetch_events(16)
-    if response.items.empty?
-      result = '◎'
-    elsif response.items.count == 4
-      result = '△'
-    else
-      result = '○'
-    end
-    result
-  end
-
-  def reservations_available_time_17_18
-    response = self.fetch_events(17)
-    if response.items.empty?
-      result = '◎'
-    elsif response.items.count == 4
-      result = '△'
-    else
-      result = '○'
-    end
-    result
-  end
-
-  def reservations_available_time_18_19
-    response = self.fetch_events(18)
-    if response.items.empty?
-      result = '◎'
-    elsif response.items.count == 4
-      result = '△'
-    else
-      result = '○'
-    end
-    result
-  end
+  # def fetch_events(set_time)
+  #     calendar_id = ENV["CALENDAR_ID"]
+  #     now = Time.current
+  #     start_time = set_time
+  #     end_time = set_time + 1
+  #     response = @service.list_events(calendar_id,
+  #                                 single_events: true,
+  #                                 order_by:      "startTime",
+  #                                 time_min:      Time.new(now.year,now.month,now.day,start_time,0,0).iso8601,
+  #                                 time_max:      Time.new(now.year,now.month,now.day,end_time,0,0).iso8601 )
+  # end
+  #
+  # def reservations_available_time_09_10
+  #   response = self.fetch_events(9)
+  #   if response.items.empty?
+  #     result = '◎'
+  #   elsif response.items.count == 4
+  #     result = '△'
+  #   else
+  #     result = '○'
+  #   end
+  #   result
+  # end
+  #
+  # def reservations_available_time_10_11
+  #   response = self.fetch_events(10)
+  #   if response.items.empty?
+  #     result = '◎'
+  #   elsif response.items.count == 4
+  #     result = '△'
+  #   else
+  #     result = '○'
+  #   end
+  #   result
+  # end
+  #
+  # def reservations_available_time_11_12
+  #   response = self.fetch_events(11)
+  #   if response.items.empty?
+  #     result = '◎'
+  #   elsif response.items.count == 4
+  #     result = '△'
+  #   else
+  #     result = '○'
+  #   end
+  #   result
+  # end
+  #
+  # def reservations_available_time_16_17
+  #   response = self.fetch_events(16)
+  #   if response.items.empty?
+  #     result = '◎'
+  #   elsif response.items.count == 4
+  #     result = '△'
+  #   else
+  #     result = '○'
+  #   end
+  #   result
+  # end
+  #
+  # def reservations_available_time_17_18
+  #   response = self.fetch_events(17)
+  #   if response.items.empty?
+  #     result = '◎'
+  #   elsif response.items.count == 4
+  #     result = '△'
+  #   else
+  #     result = '○'
+  #   end
+  #   result
+  # end
+  #
+  # def reservations_available_time_18_19
+  #   response = self.fetch_events(18)
+  #   if response.items.empty?
+  #     result = '◎'
+  #   elsif response.items.count == 4
+  #     result = '△'
+  #   else
+  #     result = '○'
+  #   end
+  #   result
+  # end
 end
