@@ -8,64 +8,67 @@
   .hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
     .hero-overlay.bg-opacity-60
     .hero-content.text-center.text-neutral-content
-      .max-w-md
-        h1.my-10.text-5xl.font-bold
-          = t('defaults.am')
-        .card.w-96.bg-base-100.shadow-xl
-          .card-body
-            p.py-3.text-5xl 9:00〜10:00
-            .mb-5.text-5xl
-              - if Reservation.reservations_09_10.count == 0
-                = '◎'
-              - elsif Reservation.reservations_09_10.count == 4
-                = '△'
-              - else
-                = '○'
-            p.py-3.text-5xl 10:00〜11:00
-            .mb-5.text-5xl
-              - if Reservation.reservations_10_11.count == 0
-                = '◎'
-              - elsif Reservation.reservations_10_11.count == 4
-                = '△'
-              - else
-                = '○'
-            p.py-3.text-5xl 11:00〜12:00
-            .mb-5.text-5xl
-              - if Reservation.reservations_11_12.count == 0
-                = '◎'
-              - elsif Reservation.reservations_11_12.count == 4
-                = '△'
-              - else
-                = '○'
-        h1.my-10.text-5xl.font-bold
-          = t('defaults.pm')
-        .card.w-96.bg-base-100.shadow-xl
-          .card-body
-            p.py-3.text-5xl 16:00〜17:00
-            .mb-5.text-5xl
-              - if Reservation.reservations_16_17.count == 0
-                = '◎'
-              - elsif Reservation.reservations_16_17.count == 4
-                = '△'
-              - else
-                = '○'
-            p.py-3.text-5xl 17:00〜18:00
-            .mb-5.text-5xl
-              - if Reservation.reservations_17_18.count == 0
-                = '◎'
-              - elsif Reservation.reservations_17_18.count == 4
-                = '△'
-              - else
-                = '○'
-            p.py-3.text-5xl 18:00〜19:00
-            .mb-5.text-5xl
-              - if Reservation.reservations_18_19.count == 0
-                = '◎'
-              - elsif Reservation.reservations_18_19.count == 4
-                = '△'
-              - else
-                = '○'
-        .card.w-96.bg-base-100.shadow-xl.my-10
-          .card-body
-            .link.link-primary.text-2xl
-              = link_to t('defaults.hp'), "http://www.onoda-seikotsu.com", target: :_blank, rel: "noopener noreferrer"
+      = week_calendar events: @reservations do |date, reservations|
+        = date.day
+
+  /    .max-w-md
+  /      h1.my-10.text-5xl.font-bold
+  /        = t('defaults.am')
+  /      .card.w-96.bg-base-100.shadow-xl
+  /        .card-body
+  /          p.py-3.text-5xl 9:00〜10:00
+  /          .mb-5.text-5xl
+  /            - if Reservation.reservations_09_10.count == 0
+  /              = '◎'
+  /            - elsif Reservation.reservations_09_10.count == 4
+  /              = '△'
+  /            - else
+  /              = '○'
+  /          p.py-3.text-5xl 10:00〜11:00
+  /          .mb-5.text-5xl
+  /            - if Reservation.reservations_10_11.count == 0
+  /              = '◎'
+  /            - elsif Reservation.reservations_10_11.count == 4
+  /              = '△'
+  /            - else
+  /              = '○'
+  /          p.py-3.text-5xl 11:00〜12:00
+  /          .mb-5.text-5xl
+  /            - if Reservation.reservations_11_12.count == 0
+  /              = '◎'
+  /            - elsif Reservation.reservations_11_12.count == 4
+  /              = '△'
+  /            - else
+  /              = '○'
+  /      h1.my-10.text-5xl.font-bold
+  /        = t('defaults.pm')
+  /      .card.w-96.bg-base-100.shadow-xl
+  /        .card-body
+  /          p.py-3.text-5xl 16:00〜17:00
+  /          .mb-5.text-5xl
+  /            - if Reservation.reservations_16_17.count == 0
+  /              = '◎'
+  /            - elsif Reservation.reservations_16_17.count == 4
+  /              = '△'
+  /            - else
+  /              = '○'
+  /          p.py-3.text-5xl 17:00〜18:00
+  /          .mb-5.text-5xl
+  /            - if Reservation.reservations_17_18.count == 0
+  /              = '◎'
+  /            - elsif Reservation.reservations_17_18.count == 4
+  /              = '△'
+  /            - else
+  /              = '○'
+  /          p.py-3.text-5xl 18:00〜19:00
+  /          .mb-5.text-5xl
+  /            - if Reservation.reservations_18_19.count == 0
+  /              = '◎'
+  /            - elsif Reservation.reservations_18_19.count == 4
+  /              = '△'
+  /            - else
+  /              = '○'
+  /      .card.w-96.bg-base-100.shadow-xl.my-10
+  /        .card-body
+  /          .link.link-primary.text-2xl
+  /            = link_to t('defaults.hp'), "http://www.onoda-seikotsu.com", target: :_blank, rel: "noopener noreferrer"

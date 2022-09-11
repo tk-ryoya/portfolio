@@ -28,6 +28,11 @@ ja:
   time:
     formats:
       short: "%H:%M"
+  simple_calendar:
+    previous: 前へ
+    next: 次へ
+    week: 週間
+    time: 時間
   helpers:
     placeholder:
       user:
