@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.order(reservation_datetime: :desc)
+    @reservations = Reservation.all.order(reservation_date: :desc)
     @reservation = @reservations.find_by(user_id: current_user)
   end
 
@@ -41,6 +41,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :reservation_type, :reservation_datetime)
+    params.require(:reservation).permit(:user_id, :reservation_type, :reservation_date, :reservation_time, :start_time)
   end
 end

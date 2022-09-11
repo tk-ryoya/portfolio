@@ -15,7 +15,8 @@ ja:
         password_confirmation: パスワード確認
       reservation:
         reservation_type: 予約種類
-        reservation_datetime: 予約日時
+        reservation_date: 予約日
+        reservation_time: 予約時間
         change_and_cancel: 変更/キャンセル
       first_interview:
         injury_date: 負傷日
@@ -24,6 +25,9 @@ ja:
       repeate_interview:
         condition: 負傷部位の調子
         description: その他
+  time:
+    formats:
+      short: "%H:%M"
   helpers:
     placeholder:
       user:

@@ -5,7 +5,9 @@ class Reservation < ApplicationRecord
   enum reservation_type: { repeate_interview: 0, first_interview: 1 }
 
   validates :reservation_type, presence: true
-  validates :reservation_datetime, presence: true
+  validates :reservation_date, presence: true
+  validates :reservation_time, presence: true
+  validates :start_time, presence: true
 
   now = Time.current
 
