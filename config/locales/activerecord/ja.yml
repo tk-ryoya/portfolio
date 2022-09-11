@@ -31,7 +31,7 @@ ja:
   simple_calendar:
     previous: 前へ
     next: 次へ
-    week: 週間
+    week: 予約カレンダー
     time: 時間
   helpers:
     placeholder:

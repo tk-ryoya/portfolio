@@ -30,7 +30,8 @@ ja:
       success: ログアウトしました
   static_pages:
     top:
-      sub_title: 本日の空き状況
+      description: カレンダーから予約したい日時を選択してください
+      before_login_description: 「ログイン」すればカレンダーから予約したい日時を選択できます
   reservations:
     index:
       details: 詳細
@@ -39,7 +40,8 @@ ja:
       change: 変更
       cancel: キャンセル
     new:
-      button: 入力フォームへ
+      button: 問診フォームへ
+      description: 予約種類を選択してください
     create:
       fail: 予約に失敗しました
     update:

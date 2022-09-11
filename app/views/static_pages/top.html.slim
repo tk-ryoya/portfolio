@@ -1,10 +1,11 @@
 .space-y-6.text-center
-  .text-5xl
+  .text-3xl.font-bold
     = t('defaults.service_name')
-  .text-4xl
-    = t('.sub_title')
-    <br>
-    = I18n.l Date.today, format: :long
+  .text-2xl
+    - if logged_in?
+      = t('.description')
+    - else
+      = t('.before_login_description')
   .hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
     .hero-overlay.bg-opacity-60
     .hero-content.text-center.text-neutral-content
