@@ -6,6 +6,9 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = current_user.reservations.build
+    @day = params[:day]
+    @time = params[:time]
+    @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
   end
 
   def create

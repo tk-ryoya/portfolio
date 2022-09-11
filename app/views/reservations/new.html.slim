@@ -16,16 +16,16 @@
               label.label
                 span.label-text
                   = f.label :reservation_date
-                = f.date_field :reservation_date, class: 'input input-bordered', placeholder: true
+                = f.text_field :reservation_date, value: @day, readonly: true, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
                   = f.label :reservation_time
-                = f.time_field :reservation_time, class: 'input input-bordered', placeholder: true
+                = f.text_field :reservation_time, value: @time, readonly: true, class: 'input input-bordered', placeholder: true
             .form_control
               label.label
                 span.label-text
-                = f.datetime_field :start_time, class: 'input input-bordered', placeholder: true
+                = f.hidden_field :start_time, value: @start_time, class: 'input input-bordered', placeholder: true
             .form_control
               button.btn.btn-primary.btn-wide
                 = t('.button')

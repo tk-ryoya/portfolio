@@ -35,3 +35,10 @@
               = time
             - week.each do |day|
               td
+                /- if Reservation.reservations_09_10.count === 0
+                /  = '◎'
+                /- elsif reservations.count === 4
+                /  = '△'
+                /- else
+                = link_to new_reservation_path(day: day, time: time) do
+                  = '○'
