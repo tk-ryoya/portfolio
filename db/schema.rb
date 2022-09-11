@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_234521) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_11_004221) do
   create_table "first_interviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "injury_date", null: false
     t.integer "injury_position", default: 0, null: false
@@ -39,10 +39,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_234521) do
   create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "reservation_type", default: 0, null: false
-    t.datetime "reservation_datetime", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.date "reservation_date", null: false
+    t.time "reservation_time", null: false
+    t.datetime "start_time", null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 

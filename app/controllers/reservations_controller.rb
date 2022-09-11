@@ -1,11 +1,14 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.order(reservation_datetime: :desc)
+    @reservations = Reservation.all.order(reservation_date: :desc)
     @reservation = @reservations.find_by(user_id: current_user)
   end
 
   def new
     @reservation = current_user.reservations.build
+    @day = params[:day]
+    @time = params[:time]
+    @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
   end
 
   def create
@@ -41,6 +44,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :reservation_type, :reservation_datetime)
+    params.require(:reservation).permit(:user_id, :reservation_type, :reservation_date, :reservation_time, :start_time)
   end
 end

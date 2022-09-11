@@ -15,7 +15,8 @@ ja:
         password_confirmation: パスワード確認
       reservation:
         reservation_type: 予約種類
-        reservation_datetime: 予約日時
+        reservation_date: 予約日
+        reservation_time: 予約時間
         change_and_cancel: 変更/キャンセル
       first_interview:
         injury_date: 負傷日
@@ -24,15 +25,23 @@ ja:
       repeate_interview:
         condition: 負傷部位の調子
         description: その他
+  time:
+    formats:
+      short: "%H:%M"
+  simple_calendar:
+    previous: 前へ
+    next: 次へ
+    week: 予約カレンダー
+    time: 時間
   helpers:
     placeholder:
       user:
-        last_name: 武田
-        first_name: 凌也
-        last_name_kana: タケダ
-        first_name_kana: リョウヤ
+        last_name: 琵琶湖
+        first_name: 太郎
+        last_name_kana: ビワコ
+        first_name_kana: タロウ
         tel: 08012345678
-        email: takeda@example.com
+        email: biwako@example.com
   enums:
     reservation:
       reservation_type:

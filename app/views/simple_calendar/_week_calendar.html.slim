@@ -1,0 +1,47 @@
+.simple-calendar
+  .calendar-heading.text-2xl.flex.justify-between
+    = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-info btn-sm'
+    - if calendar.number_of_weeks == 1
+      span.calendar-title.font-bold
+        = t('simple_calendar.week', default: 'Week')
+        /= calendar.week_number
+    - else
+      span.calendar-title.font-bold
+        = t('simple_calendar.week', default: 'Week')
+        /= calendar.week_number
+        /|  -
+        /= calendar.end_week
+    = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-info btn-sm'
+    /- reservations = Reservation.reservations_after_three_month
+  table.table.table-striped
+    thead
+      tr
+        th = t('simple_calendar.time')
+        - date_range.slice(0, 7).each do |day|
+          th = t('date.abbr_day_names')[day.wday]
+    tbody
+      - date_range.each_slice(7) do |week|
+        tr
+          td = '○月'
+          - week.each do |day|
+            = content_tag :td, class: calendar.td_classes_for(day) do
+              - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block)
+                - capture_haml(day, sorted_events.fetch(day, []), &passed_block)
+              - else
+                - passed_block.call day, sorted_events.fetch(day, [])
+        - times.each do |time|
+          tr
+            td = time
+            - week.each do |day|
+              td.bg-slate-200
+                /- if check_reservation(reservations, day, time)
+                /  = '△'
+                /- else
+                / = link_to new_reservation_path(day: day, time: time) do
+                /   = '○'
+                - if logged_in?
+                  = link_to new_reservation_path(day: day, time: time) do
+                    = '○'
+                - else
+                  = link_to login_path do
+                    = '○'

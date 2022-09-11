@@ -2,6 +2,6 @@ class StaticPagesController < ApplicationController
   skip_before_action :require_login, only: %i[top]
 
   def top
-    @calendar = Calendar.new
+    @reservations = Reservation.all.where("reservation_date >= ?", Date.current).where("reservation_date < ?", Date.current >> 3).order(reservation_date: :desc)
   end
 end
