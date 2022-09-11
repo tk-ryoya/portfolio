@@ -12,6 +12,7 @@
         |  -
         = calendar.end_week
     = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view
+    /- reservations = Reservation.reservations_after_three_month
   table.table.table-striped
     thead
       tr
