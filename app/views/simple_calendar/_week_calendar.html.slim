@@ -1,6 +1,6 @@
 .simple-calendar
   .calendar-heading.text-2xl.flex.justify-between
-    = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-info btn-sm'
+    = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-outline btn-info btn-sm'
     - if calendar.number_of_weeks == 1
       span.calendar-title.font-bold
         = t('simple_calendar.week', default: 'Week')
@@ -11,7 +11,7 @@
         /= calendar.week_number
         /|  -
         /= calendar.end_week
-    = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-info btn-sm'
+    = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-outline btn-info btn-sm'
     /- reservations = Reservation.reservations_after_three_month
   table.table.table-striped
     thead

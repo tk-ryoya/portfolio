@@ -1,7 +1,9 @@
 header
   .navbar.bg-base-100
-    .btn.btn-outline.btn-info.nomal-case.text-4xl
-      = link_to t('defaults.title'), root_path
+    .navbar-start
+      = link_to t('defaults.title'), root_path, class: 'btn btn-outline btn-info nomal-case sm:btn-sm md:btn-md lg:btn-lg w-1/2'
+    .navbar-end
+      = link_to current_user.decorate.full_name, '', class: 'btn btn-outline btn-info sm:btn-sm md:btn-md lg:btn-lg w-1/2'
   .navbar.bg-base-100.mb-10
     .md:flex
       .mx-2

@@ -11,7 +11,7 @@ ja:
     pm: 午後
     hp: 小野田整骨院HP
     history: 予約履歴
-    tel_reservation: 新規予約(電話) 準備中
+    tel_reservation: 電話予約(準備中)
     web_reservation: 新規予約(Web)
     description_title: その他何かあれば
   users:
