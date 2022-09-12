@@ -29,19 +29,25 @@
                 - capture_haml(day, sorted_events.fetch(day, []), &passed_block)
               - else
                 - passed_block.call day, sorted_events.fetch(day, [])
-        - times.each do |time|
+        - am_times.each do |time|
           tr
             td = time
             - week.each do |day|
               td.bg-slate-200
-                /- if check_reservation(reservations, day, time)
-                /  = '△'
-                /- else
-                / = link_to new_reservation_path(day: day, time: time) do
-                /   = '○'
                 - if logged_in?
                   = link_to new_reservation_path(day: day, time: time) do
+                    = '○' unless day.wday == 0
+                - else
+                  = link_to login_path do
                     = '○'
+        - pm_times.each do |time|
+          tr
+            td = time
+            - week.each do |day|
+              td.bg-slate-200
+                - if logged_in?
+                  = link_to new_reservation_path(day: day, time: time) do
+                    = '○' unless day.wday == 0 || day.wday == 6
                 - else
                   = link_to login_path do
                     = '○'
