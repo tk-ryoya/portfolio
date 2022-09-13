@@ -1,43 +1,32 @@
-.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
-  .hero-overlay.bg-opacity-60
-  .hero-content.text-center.text-neutral-content
-    .max-w-md.mb-20
-      h1.mb-5.text-5xl.font-bold.my-20
-        = t('.title')
-      .overflow-x-auto
-        table.table.w-full
-          thead
-            tr.text-center
-              th = Reservation.human_attribute_name('reservation_type')
-              th = Reservation.human_attribute_name('reservation_date')
-              th = Reservation.human_attribute_name('reservation_time')
-          tbody
-            tr.text-center
-              td = @reservation.reservation_type_i18n
-              td = I18n.l(@reservation.reservation_date, format: :long)
-              td = I18n.l(@reservation.reservation_time, format: :short)
-      h1.mb-5.text-4xl.font-bold.my-20
-        = Reservation.human_attribute_name('change_and_cancel')
-      = form_with model: @reservation, local: true do |f|
-        .card.w-96.bg-base-100.shadow-xl
-          .card-body
-            .form_control
-              label.label
-                span.label-text
-                  = f.label :reservation_type
-                = f.select :reservation_type, Reservation.reservation_types_i18n.invert
-            .form_control
-              label.label
-                span.label-text
-                  = f.label :reservation_date
-                = f.date_field :reservation_date, class: 'input input-bordered'
-            .form_control
-              label.label
-                span.label-text
-                  = f.label :reservation_time
-                = f.time_field :reservation_time, class: 'input input-bordered'
-            .form_control
-              .flex-none
-                = button_to t('.change'), reservation_path(@reservation), method: :patch, class: 'btn btn-warning btn-wide'
-              .flex-none
-                = button_to t('.cancel'), reservation_path, method: :delete, class: 'btn btn-error btn-wide'
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('.title')
+  .overflow-x-auto
+    table.table.w-full.mb-20
+      thead
+        tr.text-center
+          th = Reservation.human_attribute_name('reservation_type')
+          th = Reservation.human_attribute_name('reservation_date')
+          th = Reservation.human_attribute_name('reservation_time')
+      tbody
+        tr.text-center
+          td = @reservation.reservation_type_i18n
+          td = I18n.l(@reservation.reservation_date, format: :long)
+          td = I18n.l(@reservation.reservation_time, format: :short)
+  h1.mb-10.text-5xl.font-bold.text-center
+    = Reservation.human_attribute_name('cancel')
+  = form_with model: @reservation, local: true do |f|
+    .card.w-96.bg-base-100.shadow-xl.mx-auto
+      .card-body
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_date
+            = f.date_field :reservation_date, readonly: true, class: 'input input-bordered'
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_time
+            = f.time_field :reservation_time, readonly: true, class: 'input input-bordered'
+        .form_control.mx-auto
+          = button_to t('.cancel'), reservation_path, method: :delete, class: 'btn btn-error btn-wide'
