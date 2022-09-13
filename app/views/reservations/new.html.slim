@@ -1,33 +1,30 @@
-.hero.min-h-screen[style="background-image: url(https://placeimg.com/1000/800/nature);"]
-  .hero-overlay.bg-opacity-60
-  .hero-content.text-center.text-neutral-content
-    .max-w-md.my-10
-      h1.mb-10.text-5xl.font-bold
-        = t('defaults.web_reservation')
-      = form_with model: @reservation, local: true do |f|
-        .card.w-96.bg-base-100.shadow-xl
-          .card-body
-            .my-3
-              = t('.description')
-            .form_control
-              label.label
-                span.label-text
-                  = f.label :reservation_type
-                = f.select :reservation_type, Reservation.reservation_types_i18n.invert
-            .form_control
-              label.label
-                span.label-text
-                  = f.label :reservation_date
-                = f.text_field :reservation_date, value: @day, readonly: true, class: 'input input-bordered', placeholder: true
-            .form_control
-              label.label
-                span.label-text
-                  = f.label :reservation_time
-                = f.text_field :reservation_time, value: @time, readonly: true, class: 'input input-bordered', placeholder: true
-            .form_control
-              label.label
-                span.label-text
-                = f.hidden_field :start_time, value: @start_time, class: 'input input-bordered', placeholder: true
-            .form_control
-              button.btn.btn-primary.btn-wide
-                = t('.button')
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('defaults.web_reservation')
+  = form_with model: @reservation, local: true do |f|
+    .card.w-96.bg-base-100.shadow-xl.mx-auto
+      .card-body
+        .my-3.text-center
+          = t('.description')
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_type
+            = f.select :reservation_type, Reservation.reservation_types_i18n.invert
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_date
+            = f.text_field :reservation_date, value: @day, readonly: true, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_time
+            = f.text_field :reservation_time, value: @time, readonly: true, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+            = f.hidden_field :start_time, value: @start_time, class: 'input input-bordered', placeholder: true
+        .form_control.mx-auto
+          button.btn.btn-primary.btn-wide
+            = t('.button')

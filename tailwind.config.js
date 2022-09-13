@@ -7,6 +7,21 @@ module.exports = {
   ],
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["winter"],
+    // themes: ["valentine"],
+    themes: [
+      {
+        mytheme: {
+         "primary": "#ecfccb",
+         "secondary": "#fee2e2",
+         "accent": "#f5f5f4",
+         "neutral": "#67e8f9",
+         "base-100": "#cffafe",
+         "info": "#fef3c7",
+         "success": "#88DCDD",
+         "warning": "#ffedd5",
+         "error": "#e9d5ff",
+        },
+      },
+    ],
   },
 }

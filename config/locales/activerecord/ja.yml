@@ -17,7 +17,7 @@ ja:
         reservation_type: 予約種類
         reservation_date: 予約日
         reservation_time: 予約時間
-        change_and_cancel: 変更/キャンセル
+        cancel: 予約キャンセル
       first_interview:
         injury_date: 負傷日(必須)
         injury_position: 負傷部位(必須)
