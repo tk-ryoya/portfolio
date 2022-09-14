@@ -18,7 +18,7 @@ class UserDashboard < Administrate::BaseDashboard
     crypted_password: Field::String,
     salt: Field::String,
     reservations: Field::HasMany,
-    role: Field::Number,
+    role: Field::Enum,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
