@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :reservation_interviews
+      resources :reservations
+      resources :repeate_interviews
+      resources :first_interviews
+      resources :users
+
+      root to: "reservation_interviews#index"
+    end
   root 'static_pages#top'
 
   get    '/login',  to: 'user_sessions#new'
