@@ -80,6 +80,8 @@ GEM
       kaminari (>= 1.0)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    administrate-field-enum (0.0.9)
+      administrate (~> 0.12)
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
@@ -95,7 +97,7 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    bullet (7.0.2)
+    bullet (7.0.3)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     capybara (3.37.1)
@@ -423,6 +425,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  administrate-field-enum
   annotate
   better_errors
   binding_of_caller
