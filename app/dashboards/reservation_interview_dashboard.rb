@@ -9,8 +9,8 @@ class ReservationInterviewDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    interviewable: Field::Polymorphic,
     reservation: Field::BelongsTo,
+    interviewable: Field::Polymorphic,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,17 +22,16 @@ class ReservationInterviewDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    interviewable
     reservation
-    created_at
+    interviewable
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    interviewable
     reservation
+    interviewable
     created_at
     updated_at
   ].freeze
@@ -41,6 +40,8 @@ class ReservationInterviewDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    id
+    reservation
     interviewable
     reservation
   ].freeze

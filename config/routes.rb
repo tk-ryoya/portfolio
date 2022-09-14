@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :first_interviews
       resources :users
 
-      root to: "reservation_interviews#index"
+      root to: "reservations#index"
     end
   root 'static_pages#top'
 

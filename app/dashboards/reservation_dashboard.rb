@@ -9,13 +9,13 @@ class ReservationDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    deleted_at: Field::DateTime,
     reservation_date: Field::Date,
-    reservation_interviews: Field::HasMany,
     reservation_time: Field::Time,
     reservation_type: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
-    start_time: Field::DateTime,
     user: Field::BelongsTo,
+    reservation_interviews: Field::HasMany,
+    start_time: Field::DateTime,
+    deleted_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,22 +27,26 @@ class ReservationDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    deleted_at
     reservation_date
+    reservation_time
+    reservation_type
+    user
     reservation_interviews
+    start_time
+    deleted_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    deleted_at
     reservation_date
-    reservation_interviews
     reservation_time
     reservation_type
-    start_time
     user
+    reservation_interviews
+    start_time
+    deleted_at
     created_at
     updated_at
   ].freeze
@@ -51,13 +55,14 @@ class ReservationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    deleted_at
+    id
     reservation_date
-    reservation_interviews
     reservation_time
     reservation_type
-    start_time
     user
+    reservation_interviews
+    start_time
+    deleted_at
   ].freeze
 
   # COLLECTION_FILTERS
