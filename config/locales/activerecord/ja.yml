@@ -3,6 +3,9 @@ ja:
     models:
       user: 会員
       reservation: 予約
+      first_interview: 初診予約
+      repeate_interview: 再診予約
+      reservation_interview: 予約問診
     attributes:
       user:
         last_name: 姓
@@ -18,13 +21,21 @@ ja:
         reservation_date: 予約日
         reservation_time: 予約時間
         cancel: 予約キャンセル
+        start_time: 予約開始時間
+        deleted_at: 削除日時
+        reservation_interviews: 予約問診
       first_interview:
         injury_date: 負傷日(必須)
         injury_position: 負傷部位(必須)
         description: その他
+        reservation_interviews: 予約問診
       repeate_interview:
         condition: 負傷部位の調子(必須)
         description: その他
+        reservation_interviews: 予約問診
+      reservation_interview:
+        reservation: 予約
+        interviewable: 予約関連
   time:
     formats:
       short: "%H:%M"
@@ -43,6 +54,9 @@ ja:
         tel: 08012345678
         email: biwako@example.com
   enums:
+    user:
+      general: 一般
+      admin: 管理者
     reservation:
       reservation_type:
         first_interview: 初診
