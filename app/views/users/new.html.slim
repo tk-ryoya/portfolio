@@ -2,6 +2,7 @@
   h1.mb-10.text-5xl.font-bold.text-center
     = t('.title')
   = form_with model: @user, local: true do |f|
+    = render 'shared/error_messages', object: f.object
     .card.w-96.bg-base-100.shadow-xl.mx-auto
       .card-body
         .form_control
