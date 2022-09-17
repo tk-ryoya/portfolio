@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :repeate_interview do
-    condition { 1 }
-    description { "MyString" }
+    condition { 0 }
+    description { "test_description" }
   end
 end
