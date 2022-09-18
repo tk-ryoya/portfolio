@@ -9,7 +9,6 @@ class FirstInterview < ApplicationRecord
     leg: 4
   }
 
-  validates :injury_date, presence: true
   validates :injury_position, presence: true
   validates :description, length: { maximum: 255 }
 end

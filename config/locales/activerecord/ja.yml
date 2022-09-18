@@ -25,7 +25,7 @@ ja:
         deleted_at: 削除日時
         reservation_interviews: 予約問診
       first_interview:
-        injury_date: 負傷日(必須)
+        injury_date: 負傷日
         injury_position: 負傷部位(必須)
         description: その他
         reservation_interviews: 予約問診
