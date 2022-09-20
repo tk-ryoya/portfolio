@@ -34,7 +34,7 @@
             td = time
             - week.each do |day|
               td.bg-lime-100
-                - if day.wday == 0
+                - if day.wday == 0 || HolidayJp.holiday?(day)
                   = '休'
                 - else
                   = link_to new_reservation_path(day: day, time: time) do
@@ -44,7 +44,7 @@
             td = time
             - week.each do |day|
               td.bg-lime-100
-                - if day.wday == 0 || day.wday == 6
+                - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day)
                   = '休'
                 - else
                   = link_to new_reservation_path(day: day, time: time) do

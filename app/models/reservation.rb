@@ -12,9 +12,7 @@ class Reservation < ApplicationRecord
   def self.check_reservation_day(day)
     if day < Date.current
       return '過去の日付は選択できません'
-    # elsif
-    #   return '祝日のため選択できません'
-    elsif BusinessCalendar.temporary_closed_day?(day) || BusinessCalendar.temporary_closed_day_pm?(day)
+    elsif BusinessCalendar.temporary_closed_day?(day) #|| BusinessCalendar.temporary_closed_day_pm?(day)
       return '臨時休診のため選択できません'
     end
   end
