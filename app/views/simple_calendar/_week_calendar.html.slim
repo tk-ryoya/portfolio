@@ -1,19 +1,10 @@
 .simple-calendar
   .calendar-heading.text-2xl.flex.justify-between
     = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-default btn-sm rounded-full'
-    - if calendar.number_of_weeks == 1
-      span.calendar-title.font-bold
-        = t('simple_calendar.week', default: 'Week')
-        /= calendar.week_number
-    - else
-      span.calendar-title.font-bold
-        = t('simple_calendar.week', default: 'Week')
-        /= calendar.week_number
-        /|  -
-        /= calendar.end_week
+    span.calendar-title.font-bold
+      = t('simple_calendar.week', default: 'Week')
     = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-default btn-sm rounded-full'
-    /- reservations = Reservation.reservations_after_three_month
-  table.table.table-striped
+  table.table
     thead
       tr
         th = t('simple_calendar.time')
@@ -22,7 +13,7 @@
     tbody
       - date_range.each_slice(7) do |week|
         tr
-          td = '○月'
+          td = week.first.month.to_s + "月"
           - week.each do |day|
             = content_tag :td, class: calendar.td_classes_for(day) do
               - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block)
@@ -34,20 +25,18 @@
             td = time
             - week.each do |day|
               td.bg-lime-100
-                - if logged_in?
-                  = link_to new_reservation_path(day: day, time: time) do
-                    = '○' unless day.wday == 0
+                - if day.wday == 0 || HolidayJp.holiday?(day)
+                  = '休'
                 - else
-                  = link_to login_path do
+                  = link_to new_reservation_path(day: day, time: time) do
                     = '○'
         - pm_times.each do |time|
           tr
             td = time
             - week.each do |day|
               td.bg-lime-100
-                - if logged_in?
-                  = link_to new_reservation_path(day: day, time: time) do
-                    = '○' unless day.wday == 0 || day.wday == 6
+                - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day)
+                  = '休'
                 - else
-                  = link_to login_path do
+                  = link_to new_reservation_path(day: day, time: time) do
                     = '○'

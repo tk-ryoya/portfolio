@@ -9,17 +9,16 @@ class Reservation < ApplicationRecord
   validates :reservation_time, presence: true
   validates :start_time, presence: true
 
-  now = Time.current
-
-  scope :reservations_09_10, -> { where(start_time: Time.new(now.year,now.month,now.day,9,0,0)..Time.new(now.year,now.month,now.day,10,0,0)) }
-  # scope :reservations_10_11, -> { where(reservation_datetime: Time.new(now.year,now.month,now.day,10,0,0)..Time.new(now.year,now.month,now.day,11,0,0)) }
-  # scope :reservations_11_12, -> { where(reservation_datetime: Time.new(now.year,now.month,now.day,11,0,0)..Time.new(now.year,now.month,now.day,12,0,0)) }
-  # scope :reservations_16_17, -> { where(reservation_datetime: Time.new(now.year,now.month,now.day,16,0,0)..Time.new(now.year,now.month,now.day,17,0,0)) }
-  # scope :reservations_17_18, -> { where(reservation_datetime: Time.new(now.year,now.month,now.day,17,0,0)..Time.new(now.year,now.month,now.day,18,0,0)) }
-  # scope :reservations_18_19, -> { where(reservation_datetime: Time.new(now.year,now.month,now.day,18,0,0)..Time.new(now.year,now.month,now.day,19,0,0)) }
+  def self.check_reservation_day(day)
+    if day < Date.current
+      return '過去の日付は選択できません'
+    elsif BusinessCalendar.temporary_closed_day?(day) #|| BusinessCalendar.temporary_closed_day_pm?(day)
+      return '臨時休診のため選択できません'
+    end
+  end
 
   def delete!
-    self.deleted_at = Time.now
+    self.deleted_at = Time.current
     save!
   end
 

@@ -14,6 +14,7 @@ ja:
     tel_reservation: 電話予約(準備中)
     web_reservation: 新規予約
     description_title: その他何かあれば
+    clinic_calendar: 診療日カレンダー
   users:
     new:
       title: 会員登録画面

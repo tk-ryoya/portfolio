@@ -7,5 +7,15 @@
     - else
       = t('.before_login_description')
   .artboard.phone-5.mx-auto
-    = week_calendar events: @reservations do |date, reservations|
-      = date.day
+    - if logged_in?
+      = week_calendar events: @reservations do |date, reservations|
+        = date.day
+      .container.my-10
+        .text-2xl.font-bold
+          = t('defaults.clinic_calendar')
+          iframe[src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Asia%2FTokyo&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=MONTH&showDate=0&src=M2x1cXBxbG1sMzVxM2tpMmtiN3RrNGhxYmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%237CB342" style="border-width:0" width="400" height="600" frameborder="0" scrolling="no"]
+    - else
+      .container.my-10
+        .text-2xl.font-bold
+          = t('defaults.clinic_calendar')
+          iframe[src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Asia%2FTokyo&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=MONTH&showDate=0&src=M2x1cXBxbG1sMzVxM2tpMmtiN3RrNGhxYmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%237CB342" style="border-width:0" width="400" height="600" frameborder="0" scrolling="no"]

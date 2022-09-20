@@ -26,11 +26,13 @@ class Calendar
   end
 
   def read
+    now = Date.current
+    next_month = now.next_month
     events = @service.list_events(@calendar_id,
                                   single_events: true,
                                   order_by:      "startTime",
-                                  time_min: (Time.new(2022, 9, 1)).iso8601,
-                                  time_max: (Time.new(2022, 9, 20)).iso8601,
+                                  time_min: (Time.new(now.year, now.month, now.day)).iso8601,
+                                  time_max: (Time.new(next_month.year, next_month.month, next_month.day)).iso8601,
                                   )
   end
 
@@ -57,27 +59,15 @@ class Calendar
     )
   end
 
-  # def fetch_events(set_time)
-  #     calendar_id = ENV["CALENDAR_ID"]
-  #     now = Time.current
-  #     start_time = set_time
-  #     end_time = set_time + 1
-  #     response = @service.list_events(calendar_id,
-  #                                 single_events: true,
-  #                                 order_by:      "startTime",
-  #                                 time_min:      Time.new(now.year,now.month,now.day,start_time,0,0).iso8601,
-  #                                 time_max:      Time.new(now.year,now.month,now.day,end_time,0,0).iso8601 )
-  # end
-  #
-  # def reservations_available_time_09_10
-  #   response = self.fetch_events(9)
-  #   if response.items.empty?
-  #     result = '◎'
-  #   elsif response.items.count == 4
-  #     result = '△'
-  #   else
-  #     result = '○'
-  #   end
-  #   result
-  # end
+  def closed_days
+    items = self.read.items
+    rest = items.map { |item| item.start.date if item.summary == '休診日(臨時)' }
+    rest.compact
+  end
+
+  def closed_days_pm
+    items = self.read.items
+    rest = items.map { |item| item.start.date if item.summary == '午後休診(臨時)' }
+    rest.compact
+  end
 end
