@@ -16,9 +16,10 @@ class Calendar
     authorizer
   end
 
-  def set_event(summary, start_time, end_time)
+  def set_event(summary, description, start_time, end_time)
     event = Google::Apis::CalendarV3::Event.new(
       summary: summary,
+      description: description,
       start: Google::Apis::CalendarV3::EventDateTime.new(date_time: start_time.iso8601),
       end: Google::Apis::CalendarV3::EventDateTime.new(date_time: end_time.iso8601)
     )

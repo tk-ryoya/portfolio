@@ -13,7 +13,12 @@ class FirstInterviewsController < ApplicationController
     calendar = Calendar.new
     if @first_reservation.save
       redirect_to reservations_path, success: t('.success')
-      calendar.set_event("#{current_user.decorate.full_name}" + "  " + "(初診)", reservation_start_time, reservation_end_time)
+      calendar.set_event(
+        "#{current_user.decorate.full_name}" + "  (初診)",
+        "予約番号:  " + "#{reservation.id}\n" + "負傷部位:  " + "#{@first_interview.injury_position_i18n}\n" + "負傷日時:  " + "#{@first_interview.injury_date}\n" + "その他:  " + "#{@first_interview.description}",
+        reservation_start_time,
+        reservation_end_time
+      )
     else
       flash.now[:error] = t('.fail')
       render :new
