@@ -36,17 +36,12 @@ ja:
   reservations:
     index:
       details: 詳細
-    show:
-      title: 予約詳細
       cancel: キャンセル
     new:
       button: 問診フォームへ
       description: 予約種類を選択してください
     create:
       fail: 予約に失敗しました
-    update:
-      success: 予約を変更しました
-      fail: 予約の変更に失敗しました
     delete:
       success: 予約をキャンセルしました
   first_interviews:

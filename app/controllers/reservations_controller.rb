@@ -24,19 +24,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def show
-    @reservation = current_user.reservations.find(params[:id])
-  end
-
-  def update
-    @reservation = current_user.reservations.find(params[:id])
-    if @reservation.update(reservation_params)
-      redirect_to reservations_path, success: t('.success')
-    else
-      flash.now[:error] = t('.fail')
-    end
-  end
-
   def delete
     @reservation = current_user.reservations.find(params[:id])
     @reservation.delete!

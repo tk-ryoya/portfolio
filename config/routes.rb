@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/oauth2callback', to: 'calendars#callback'
 
   resources :users, only: %i[new create]
-  resources :reservations, only: [:index, :new, :create, :update, :show] do
+  resources :reservations, only: [:index, :new, :create, :show] do
     resources :first_interviews, only: [:new, :create]
     resources :repeate_interviews, only: [:new, :create]
   end

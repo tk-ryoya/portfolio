@@ -8,7 +8,7 @@
           th = Reservation.human_attribute_name('reservation_type')
           th = Reservation.human_attribute_name('reservation_date')
           th = Reservation.human_attribute_name('reservation_time')
-          th = t('reservations.show.cancel')
+          th = t('.cancel')
       tbody
       - @reservations.each do |reservation|
         - if reservation.deleted_at.nil?
@@ -16,4 +16,4 @@
             td = reservation.reservation_type_i18n
             td = I18n.l(reservation.reservation_date, format: :long)
             td = I18n.l(reservation.reservation_time, format: :short)
-            td = link_to t('.details'), reservation_path(@reservation), class: 'btn btn-primary rounded-full'
+            td = button_to t('.cancel'), reservation, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: 'btn btn-error rounded-full'
