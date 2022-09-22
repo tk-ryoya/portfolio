@@ -29,6 +29,18 @@ ja:
       fail: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+      update: 更新する
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
+      fail: パスワードを変更できませんでした
   static_pages:
     top:
       description: カレンダーから予約したい日時を選択してください

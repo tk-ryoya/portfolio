@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   get '/oauth2callback', to: 'calendars#callback'
 
   resources :users, only: %i[new create]
-  resources :reservations, only: [:index, :new, :create, :show] do
-    resources :first_interviews, only: [:new, :create]
-    resources :repeate_interviews, only: [:new, :create]
+  resources :password_resets, only: %i[new create edit update]
+
+  resources :reservations, only: %i[index new create show] do
+    resources :first_interviews, only: %i[new create]
+    resources :repeate_interviews, only: %i[new create]
   end
   delete '/reservations/:id', to: 'reservations#delete'
 end
