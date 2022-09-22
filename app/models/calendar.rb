@@ -71,4 +71,9 @@ class Calendar
     rest = items.map { |item| item.start.date if item.summary == '午後休診(臨時)' }
     rest.compact
   end
+
+  def match_reservations(reservation)
+    items = self.read.items
+    rest = items.select { |item| item.id if item.description.include?("「#{reservation.id}」") }
+  end
 end
