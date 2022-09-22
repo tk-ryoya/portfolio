@@ -1,2 +1,19 @@
-h1 PasswordResets#new
-p Find me in app/views/password_resets/new.html.slim
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('.title')
+  = form_with url: password_resets_path, local: true do |f|
+    .card.w-96.bg-base-100.shadow-xl.mx-auto
+      .card-body
+        .form_control
+          label.label
+            span.label-text
+              = f.label :email, User.human_attribute_name('email')
+            = f.email_field :email, class: 'input input-bordered', placeholder: User.human_attribute_name('email')
+        .form_control
+          label.label
+            span.label-text
+              = f.label :password, User.human_attribute_name('password')
+            = f.password_field :password, class: 'input input-bordered', placeholder: User.human_attribute_name('password')
+        .form_control.mx-auto
+          button.btn.btn-primary.btn-wide.rounded-full
+            = t('password_resets.new.submit')

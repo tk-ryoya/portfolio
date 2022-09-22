@@ -17,3 +17,5 @@
         .form_control.mx-auto
           button.btn.btn-primary.btn-wide.rounded-full
             = t('defaults.login')
+        .form_control.mx-auto
+          = link_to t('.password_forget'), new_password_reset_path

@@ -24,6 +24,7 @@ ja:
   user_sessions:
     new:
       title: ログイン画面
+      password_forget: パスワードをお忘れの方
     create:
       success: ログインしました
       fail: ログインに失敗しました
