@@ -26,7 +26,10 @@ class ReservationsController < ApplicationController
 
   def delete
     @reservation = current_user.reservations.find(params[:id])
+    calendar = Calendar.new
+    event_id = calendar.match_reservations(@reservation)
     @reservation.delete!
+    calendar.delete(event_id)
     redirect_to reservations_path, success: t('.success')
   end
 
