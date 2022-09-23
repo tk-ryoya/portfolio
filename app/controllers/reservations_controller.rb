@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
-    message = Reservation.check_reservation_day(@day.to_date)
+    message = Reservation.check_reservation_day(@day.to_date, @time.to_time)
     redirect_to root_path, error: message if !!message
   end
 
