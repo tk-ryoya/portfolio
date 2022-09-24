@@ -10,14 +10,14 @@ class Reservation < ApplicationRecord
   validates :start_time, presence: true
 
   def self.check_reservation_day(day, time)
-    if day < Date.current && time < (Time.current + 1.hours)
-      return '過去は選択できません'
-    elsif (Date.current >> 1) < day
-      return '1ヶ月以降先の予約は電話にてご連絡ください'
+    if day < Date.current
+      return "過去の日付は選択できません"
+    elsif day > (Date.current + 1.months)
+      return "1ヶ月以降先の予約は電話にてご連絡ください"
     elsif BusinessCalendar.temporary_closed_day?(day)
-      return '臨時休診のため選択できません'
+      return "#{day.strftime("%m月%d日")}は臨時休診日のため選択できません"
     elsif BusinessCalendar.temporary_closed_day_pm?(day)
-      return '午後休診(臨時)のため、電話にてお問い合わせください'
+      return "#{day.strftime("%m月%d日")}は午後休診(臨時)のため、電話にてお問い合わせください"
     end
   end
 

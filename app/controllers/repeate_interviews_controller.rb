@@ -15,7 +15,7 @@ class RepeateInterviewsController < ApplicationController
       redirect_to reservations_path, success: t('.success')
       calendar.set_event(
         "#{current_user.decorate.full_name}" + "  (再診)",
-        "予約番号:  " + "#{reservation.id}\n" + "負傷部位の調子:  " + "#{@repeate_interview.condition_i18n}\n" + "その他:  " + "#{@repeate_interview.description}",
+        "予約番号:  " + "「#{reservation.id}」\n" + "負傷部位の調子:  " + "#{@repeate_interview.condition_i18n}\n" + "その他:  " + "#{@repeate_interview.description}",
         reservation_start_time,
         reservation_end_time
       )
