@@ -11,7 +11,7 @@ ja:
     pm: 午後
     hp: 小野田整骨院HP
     history: 予約履歴
-    tel_reservation: 電話予約(準備中)
+    tel_reservation: 電話予約
     web_reservation: 新規予約
     description_title: その他何かあれば
     clinic_calendar: 診療日カレンダー
@@ -24,29 +24,37 @@ ja:
   user_sessions:
     new:
       title: ログイン画面
+      password_forget: パスワードをお忘れの方
     create:
       success: ログインしました
       fail: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+      update: 更新する
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
+      fail: パスワードを変更できませんでした
   static_pages:
     top:
       description: カレンダーから予約したい日時を選択してください
-      before_login_description: 「ログイン」すればカレンダーから予約したい日時を選択できます
+      before_login_description: ログインすると「予約カレンダー」が表示されます
   reservations:
     index:
       details: 詳細
-    show:
-      title: 予約詳細
       cancel: キャンセル
     new:
       button: 問診フォームへ
       description: 予約種類を選択してください
     create:
       fail: 予約に失敗しました
-    update:
-      success: 予約を変更しました
-      fail: 予約の変更に失敗しました
     delete:
       success: 予約をキャンセルしました
   first_interviews:

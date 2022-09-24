@@ -1,7 +1,7 @@
 .max-w-md.my-10.mx-auto
   h1.mb-10.text-5xl.font-bold.text-center
     = t('.title')
-  = form_with model: @user, local: true do |f|
+  = form_with url: password_resets_path, local: true do |f|
     .card.w-96.bg-base-100.shadow-xl.mx-auto
       .card-body
         .form_control
@@ -16,6 +16,4 @@
             = f.password_field :password, class: 'input input-bordered', placeholder: User.human_attribute_name('password')
         .form_control.mx-auto
           button.btn.btn-primary.btn-wide.rounded-full
-            = t('defaults.login')
-        .form_control.mx-auto
-          = link_to t('.password_forget'), new_password_reset_path
+            = t('password_resets.new.submit')

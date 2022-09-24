@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
-    message = Reservation.check_reservation_day(@day.to_date)
+    message = Reservation.check_reservation_day(@day.to_date, @time.to_time)
     redirect_to root_path, error: message if !!message
   end
 
@@ -24,22 +24,12 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def show
-    @reservation = current_user.reservations.find(params[:id])
-  end
-
-  def update
-    @reservation = current_user.reservations.find(params[:id])
-    if @reservation.update(reservation_params)
-      redirect_to reservations_path, success: t('.success')
-    else
-      flash.now[:error] = t('.fail')
-    end
-  end
-
   def delete
     @reservation = current_user.reservations.find(params[:id])
+    calendar = Calendar.new
+    event_id = calendar.match_reservations(@reservation)
     @reservation.delete!
+    calendar.delete(event_id)
     redirect_to reservations_path, success: t('.success')
   end
 
