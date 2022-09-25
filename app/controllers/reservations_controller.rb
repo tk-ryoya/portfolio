@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.order(reservation_date: :desc)
-    @reservation = @reservations.find_by(user_id: current_user)
+    @reservations = current_user.reservations.all.order(reservation_date: :desc)
   end
 
   def new
