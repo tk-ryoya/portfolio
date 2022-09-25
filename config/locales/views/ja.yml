@@ -72,3 +72,6 @@ ja:
     create:
       success: 予約しました
       fail: 予約に失敗しました
+  contacts:
+    success: お問い合わせ内容を送信しました
+    fail: お問い合わせ内容の送信に失敗しました
