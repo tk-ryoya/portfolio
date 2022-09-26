@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   delete '/reservations/:id', to: 'reservations#delete'
 
   resources :contacts, only: %i[new create]
+
+  resource :profile, only: %i[show edit update]
 end
