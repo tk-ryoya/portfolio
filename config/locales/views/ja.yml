@@ -16,6 +16,8 @@ ja:
     description_title: その他何かあれば
     clinic_calendar: 診療日カレンダー
     contact: お問い合わせ
+    profile: 会員情報
+    profile_edit: 会員情報変更
   users:
     new:
       title: 会員登録画面
@@ -80,3 +82,7 @@ ja:
     create:
       success: お問い合わせ内容を送信しました
       fail: お問い合わせ内容の送信に失敗しました
+  profiles:
+    update:
+      success: 会員情報を変更しました
+      fail: 会員情報を変更できませんでした

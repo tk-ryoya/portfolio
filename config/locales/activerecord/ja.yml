@@ -16,6 +16,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+        full_name: お名前
       reservation:
         reservation_type: 予約種類
         reservation_date: 予約日
