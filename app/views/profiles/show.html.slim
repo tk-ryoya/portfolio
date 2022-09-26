@@ -1,0 +1,15 @@
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('defaults.profile')
+  .overflow-x-auto
+    table.table.mx-auto.mb-10
+      thead
+        tr.text-center
+          th[scope="row"] = t(User.human_attribute_name(:email))
+          th[scope="row"] = t(User.human_attribute_name(:full_name))
+      tbody
+        tr.text-center
+          td = current_user.email
+          td = current_user.decorate.full_name
+    .text-center
+      = link_to t('defaults.profile_edit'), edit_profile_path, class: 'btn btn-primary btn-wide rounded-full'
