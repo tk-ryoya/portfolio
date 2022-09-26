@@ -13,6 +13,11 @@
         .form_control
           label.label
             span.label-text
+              = f.label :email
+            = f.email_field :email, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
               = f.label :content
             = f.text_area :content, class: 'input input-bordered', placeholder: true
         .form_control.mx-auto
