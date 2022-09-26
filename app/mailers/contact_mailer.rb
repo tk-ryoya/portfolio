@@ -1,7 +1,7 @@
 class ContactMailer < ApplicationMailer
 
-  def contact_mail(contact, user)
+  def contact_mail(contact)
     @contact = contact
-    mail to: user.email, bcc: ENV['ACTION_MAILER_USER'], subject: 'Webサイトより問い合わせが届きました'
+    mail from: contact.email, to: ENV['MAIL_ADDRESS'], subject: 'Webサイトより問い合わせが届きました'
   end
 end

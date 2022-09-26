@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  skip_before_action :require_login, only: %i[new create]
 
   def new
     @contact = Contact.new
@@ -7,6 +8,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      ContactMailer.contact_mail(@contact).deliver_now
       redirect_to root_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
