@@ -25,15 +25,4 @@ class Reservation < ApplicationRecord
     self.deleted_at = Time.current
     save!
   end
-
-  def self.reservations_after_three_month
-    reservations = Reservation.all.where("reservation_date >= ?", Date.current).where("reservation_date < ?", Date.current >> 3).order(reservation_date: :desc)
-    reservation_data = []
-    reservations.each do |reservation|
-      reservation_hash = {}
-      reservation_hash.merge!(day: reservation.reservation_date.strftime("%Y-%m-%d"), time: reservation.reservation_time)
-      reservation_data.push(reservation_hash)
-    end
-    reservation_data
-  end
 end
