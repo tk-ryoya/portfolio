@@ -15,6 +15,7 @@ ja:
     web_reservation: 新規予約
     description_title: その他何かあれば
     clinic_calendar: 診療日カレンダー
+    contact: お問い合わせ
   users:
     new:
       title: 会員登録画面
@@ -73,5 +74,9 @@ ja:
       success: 予約しました
       fail: 予約に失敗しました
   contacts:
-    success: お問い合わせ内容を送信しました
-    fail: お問い合わせ内容の送信に失敗しました
+    new:
+      title: お問い合わせ
+      button: 送信
+    create:
+      success: お問い合わせ内容を送信しました
+      fail: お問い合わせ内容の送信に失敗しました
