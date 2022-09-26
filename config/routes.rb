@@ -27,4 +27,6 @@ Rails.application.routes.draw do
     resources :repeate_interviews, only: %i[new create]
   end
   delete '/reservations/:id', to: 'reservations#delete'
+
+  resources :contacts, only: %i[new create]
 end

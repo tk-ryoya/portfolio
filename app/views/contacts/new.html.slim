@@ -1,0 +1,25 @@
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('.title')
+  = form_with model: @contact, local: true do |f|
+    = render 'shared/error_messages', object: f.object
+    .card.w-96.bg-base-100.shadow-xl.mx-auto
+      .card-body
+        .form_control
+          label.label
+            span.label-text
+              = f.label :name
+            = f.text_field :name, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :email
+            = f.email_field :email, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :content
+            = f.text_area :content, class: 'input input-bordered', placeholder: true
+        .form_control.mx-auto
+          button.btn.btn-primary.btn-wide.rounded-full
+            = t('.button')

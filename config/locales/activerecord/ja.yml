@@ -36,6 +36,10 @@ ja:
       reservation_interview:
         reservation: 予約
         interviewable: 予約関連
+      contact:
+        name: お名前
+        email: メールアドレス
+        content: お問い合わせ内容
   time:
     formats:
       short: "%H:%M"
