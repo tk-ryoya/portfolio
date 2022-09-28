@@ -37,22 +37,6 @@ class Calendar
                                   )
   end
 
-  def update(event_id)
-    event = set_event(
-      'updated test event',
-      'updated test event',
-      'updated',
-      DateTime.new(2020, 8, 24, 12),
-      DateTime.new(2020, 8, 24, 15)
-    )
-
-    response =  @service.update_event(
-      @calendar_id,
-      event_id,
-      event
-    )
-  end
-
   def delete(event_id)
     @service.delete_event(
       @calendar_id,

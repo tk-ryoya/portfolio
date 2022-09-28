@@ -14,7 +14,8 @@ ja:
     tel_reservation: 電話予約
     web_reservation: 新規予約
     description_title: その他何かあれば
-    clinic_calendar: 診療日カレンダー
+    closed_days: 直近の臨時休診日
+    closed_days_pm: 直近の臨時午後休診
     contact: お問い合わせ
     profile: 会員情報
     profile_edit: 会員情報変更
