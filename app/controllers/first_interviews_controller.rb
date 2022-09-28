@@ -13,7 +13,8 @@ class FirstInterviewsController < ApplicationController
     calendar = Calendar.new
     if @first_reservation.save
       redirect_to reservations_path, success: t('.success')
-      calendar.set_event("初診予約", "予約番号:  " + "「#{reservation.id}", reservation_start_time, reservation_end_time)
+      calendar.set_event("初診予約", "予約番号:  " + "「#{reservation.id}」", reservation_start_time, reservation_end_time)
+      AdminMailer.reservation_notification(reservation, current_user).deliver_now
     else
       flash.now[:error] = t('.fail')
       render :new
