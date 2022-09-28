@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
 
   root 'static_pages#top'
+  get '/user_policy', to: 'static_pages#user_policy'
+  get '/privacy_policy', to: 'static_pages#privacy_policy'
 
   get    '/login',  to: 'user_sessions#new'
   post   '/login',  to: 'user_sessions#create'

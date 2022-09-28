@@ -49,6 +49,7 @@ ja:
     next: 次へ
     week: 予約カレンダー
     time: 時間
+    this_week: 今週
   helpers:
     placeholder:
       user:

@@ -6,7 +6,7 @@
       = t('.description')
     - else
       = t('.before_login_description')
-  .artboard.phone-5.mx-auto
+  .container
     - if logged_in?
       = week_calendar events: @reservations do |date, reservations|
         = date.day
