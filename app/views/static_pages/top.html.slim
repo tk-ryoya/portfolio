@@ -7,20 +7,19 @@
     - else
       = t('.before_login_description')
   .container
-    - if logged_in?
-      = week_calendar events: @reservations do |date, reservations|
-        = date.day
-      .container.my-10
-        .text-3xl.font-bold
-          = t('defaults.closed_days')
-        table.table.mx-auto
-          - BusinessCalendar.temporary_closed_day.each do |temporary_closed_day|
-            tr.text-center.text-2xl.font-bold
-              td = temporary_closed_day
-      .container.my-10
-        .text-3xl.font-bold
-          = t('defaults.closed_days_pm')
-        table.table.mx-auto
-          - BusinessCalendar.temporary_closed_day_pm.each do |temporary_closed_day_pm|
-            tr.text-center.text-2xl.font-bold
-              td = temporary_closed_day_pm
+    = week_calendar events: @reservations do |date, reservations|
+      = date.day
+    .container.my-10
+      .text-3xl.font-bold
+        = t('defaults.closed_days')
+      table.table.mx-auto
+        - BusinessCalendar.temporary_closed_day.each do |temporary_closed_day|
+          tr.text-center.text-2xl.font-bold
+            td = temporary_closed_day
+    .container.my-10
+      .text-3xl.font-bold
+        = t('defaults.closed_days_pm')
+      table.table.mx-auto
+        - BusinessCalendar.temporary_closed_day_pm.each do |temporary_closed_day_pm|
+          tr.text-center.text-2xl.font-bold
+            td = temporary_closed_day_pm

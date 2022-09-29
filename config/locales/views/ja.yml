@@ -49,7 +49,7 @@ ja:
   static_pages:
     top:
       description: カレンダーから予約したい日時を選択してください
-      before_login_description: ログインすると「予約カレンダー」が表示されます
+      before_login_description: ログインすると予約が取れます
   reservations:
     index:
       details: 詳細

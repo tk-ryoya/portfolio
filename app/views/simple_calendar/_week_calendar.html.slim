@@ -30,8 +30,12 @@
                 - if day.wday == 0 || HolidayJp.holiday?(day)
                   = '休'
                 - else
-                  = link_to new_reservation_path(day: day, time: time) do
-                    = '○'
+                  - if logged_in?
+                    = link_to new_reservation_path(day: day, time: time) do
+                      = '○'
+                  - else
+                    = link_to login_path do
+                      = '○'
         - pm_times.each do |time|
           tr
             td = time
@@ -40,5 +44,9 @@
                 - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day)
                   = '休'
                 - else
-                  = link_to new_reservation_path(day: day, time: time) do
-                    = '○'
+                  - if logged_in?
+                    = link_to new_reservation_path(day: day, time: time) do
+                      = '○'
+                  - else
+                    = link_to login_path do
+                      = '○'
