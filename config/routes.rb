@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       # resources :repeate_interviews
       # resources :first_interviews
       # resources :users
+    root to: 'users#index'
+
+    resources :users
     end
 
   root 'static_pages#top'

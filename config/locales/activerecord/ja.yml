@@ -17,6 +17,10 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         full_name: お名前
+        role: 管理権限
+        id: ID
+        created_at: 作成日時
+        updated_at: 更新日時
       reservation:
         reservation_type: 予約種類
         reservation_date: 予約日
@@ -61,8 +65,9 @@ ja:
         email: biwako@example.com
   enums:
     user:
-      general: 一般
-      admin: 管理者
+      role:
+        general: 一般
+        admin: 管理者
     reservation:
       reservation_type:
         first_interview: 初診

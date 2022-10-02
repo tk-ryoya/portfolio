@@ -1,0 +1,20 @@
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('.title')
+  .overflow-x-auto
+    table.table.table-compact.mx-auto
+      thead
+        tr.text-center
+          th = 'id'
+          th = User.human_attribute_name('full_name')
+          th = User.human_attribute_name('tel')
+          th = User.human_attribute_name('email')
+          th = t('.details')
+      tbody
+      - @users.each do |user|
+        tr.text-center
+          td = user.id
+          td = user.decorate.full_name
+          td = user.tel
+          td = user.email
+          td = link_to t('.details'), admin_user_path(user), class: 'btn btn-primary rounded-full'
