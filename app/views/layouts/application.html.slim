@@ -1,13 +1,6 @@
 doctype html
 html
   head
-    title
-      | ReservationService
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
     / Google tag (gtag.js)
     script[async src="https://www.googletagmanager.com/gtag/js?id=G-F5336PNT7Z"]
     script
@@ -15,6 +8,13 @@ html
       | function gtag(){dataLayer.push(arguments);}
       | gtag('js', new Date());
       | gtag('config', 'G-F5336PNT7Z');
+    title
+      | ReservationService
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body
     = render 'shared/flash_message'
     - if logged_in?
