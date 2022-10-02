@@ -74,10 +74,6 @@ gem 'simple_calendar'
 # デコレータ
 gem 'draper'
 
-# 管理画面
-# gem 'administrate'
-# gem 'administrate-field-enum'
-
 # 祝日用
 gem 'holiday_jp'
 
