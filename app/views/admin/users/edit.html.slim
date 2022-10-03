@@ -1,8 +1,6 @@
 .max-w-md.my-10.mx-auto
   h1.mb-10.text-5xl.font-bold.text-center
     = t('defaults.profile')
-  .text-center.mb-10
-    = link_to t('admin.users.index.title'), admin_users_path, class: 'btn btn-default btn-wide rounded-full'
   = form_with model: @user, url: admin_user_path(@user), local: true do |f|
     = render 'shared/error_messages', object: f.object
     .card.w-96.bg-base-100.shadow-xl.mx-auto

@@ -22,6 +22,7 @@ ja:
     edit: 編集
     update: 更新
     admin_view: 管理画面
+    delete: 削除
   users:
     new:
       title: 会員登録画面
@@ -97,7 +98,6 @@ ja:
         title: 会員一覧
         details: 詳細
       show:
-        delete: 削除
       update:
         success: 更新しました
       destroy:

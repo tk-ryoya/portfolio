@@ -1,8 +1,6 @@
 .max-w-md.my-10.mx-auto
   h1.mb-10.text-5xl.font-bold.text-center
     = t('defaults.profile')
-  .text-center.mb-10
-    = link_to t('admin.users.index.title'), admin_users_path, class: 'btn btn-default btn-wide rounded-full'
   .overflow-x-auto
     table.table.mx-auto.mb-10
       tr.text-center
@@ -26,4 +24,4 @@
     .text-center.mb-10
       = link_to t('defaults.edit'), edit_admin_user_path(@user), class: 'btn btn-primary btn-wide rounded-full'
     .text-center
-      = button_to t('.delete'), admin_user_path(@user), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: 'btn btn-error btn-wide rounded-full'
+      = button_to t('defaults.delete'), admin_user_path(@user), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: 'btn btn-error btn-wide rounded-full'

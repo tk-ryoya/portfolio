@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: %i[edit update show destroy]
+
   def index
     @users = User.all
   end
@@ -10,7 +11,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.update(user_params)
       redirect_to admin_user_path(@user), success: t('.success')
     else
-      flash.now[:error] = t('')
+      flash.now[:error] = t('.success')
       render :edit
     end
   end
