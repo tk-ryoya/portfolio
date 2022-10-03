@@ -18,3 +18,4 @@
           td = user.tel
           td = user.email
           td = link_to t('.details'), admin_user_path(user), class: 'btn btn-primary rounded-full'
+  = paginate @users

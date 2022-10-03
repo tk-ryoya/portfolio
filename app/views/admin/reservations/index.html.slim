@@ -18,3 +18,4 @@
           td = reservation.reservation_type_i18n
           td = l(reservation.start_time, format: :long)
           td = link_to t('.details'), admin_reservation_path(reservation), class: 'btn btn-primary rounded-full'
+  = paginate @reservations

@@ -2,7 +2,7 @@ class Admin::ReservationsController < Admin::BaseController
   before_action :set_reservation, only: %i[edit update show destroy]
 
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.order(start_time: :desc).page(params[:page])
   end
 
   def edit; end
