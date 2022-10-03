@@ -22,6 +22,7 @@ ja:
         created_at: 作成日時
         updated_at: 更新日時
       reservation:
+        user_id: 会員番号
         reservation_type: 予約種類
         reservation_date: 予約日
         reservation_time: 予約時間
@@ -29,6 +30,8 @@ ja:
         start_time: 予約開始時間
         deleted_at: 削除日時
         reservation_interviews: 予約問診
+        created_at: 作成日時
+        updated_at: 更新日時
       first_interview:
         injury_date: 負傷日
         injury_position: 負傷部位(必須)

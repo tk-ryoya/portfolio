@@ -97,7 +97,16 @@ ja:
       index:
         title: 会員一覧
         details: 詳細
+      update:
+        success: 更新しました
+      destroy:
+        success: 削除しました
+    reservations:
+      index:
+        title: 予約一覧
+        details: 詳細
       show:
+        title: 予約情報
       update:
         success: 更新しました
       destroy:

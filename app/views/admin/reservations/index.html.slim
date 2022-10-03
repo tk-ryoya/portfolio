@@ -1,0 +1,20 @@
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('.title')
+  .overflow-x-auto
+    table.table.table-compact.mx-auto
+      thead
+        tr.text-center
+          th = 'id'
+          th = Reservation.human_attribute_name('user_id')
+          th = Reservation.human_attribute_name('reservation_type')
+          th = Reservation.human_attribute_name('start_time')
+          th = t('.details')
+      tbody
+      - @reservations.each do |reservation|
+        tr.text-center
+          td = reservation.id
+          td = reservation.user_id
+          td = reservation.reservation_type_i18n
+          td = l(reservation.start_time, format: :long)
+          td = link_to t('.details'), admin_reservation_path(reservation), class: 'btn btn-primary rounded-full'
