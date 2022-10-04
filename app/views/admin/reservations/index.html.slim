@@ -1,20 +1,26 @@
 .max-w-md.my-10.mx-auto
   h1.mb-10.text-5xl.font-bold.text-center
     = t('.title')
+  .mb-10.text-center
+    = render 'search_form', url: admin_reservations_path, q: @q
   .overflow-x-auto
     table.table.table-compact.mx-auto
       thead
         tr.text-center
           th = 'id'
           th = Reservation.human_attribute_name('user_id')
+          th = User.human_attribute_name('full_name')
           th = Reservation.human_attribute_name('reservation_type')
-          th = Reservation.human_attribute_name('start_time')
+          th = sort_link(@q, :start_time, Reservation.human_attribute_name('start_time'), default_order: :desc)
           th = t('.details')
       tbody
       - @reservations.each do |reservation|
+        - user_id = reservation.user_id
+        - user = User.find(user_id)
         tr.text-center
           td = reservation.id
           td = reservation.user_id
+          td = user.decorate.full_name
           td = reservation.reservation_type_i18n
           td = l(reservation.start_time, format: :long)
           td = link_to t('.details'), admin_reservation_path(reservation), class: 'btn btn-primary rounded-full'

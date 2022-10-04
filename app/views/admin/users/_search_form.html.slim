@@ -1,0 +1,4 @@
+= search_form_for @q, url: url do |f|
+  = f.label :last_name_or_first_name_cont, '名前検索', class: 'text-bold text-2xl'
+  = f.search_field :last_name_or_first_name_cont, class: 'input input-bordered w-full max-w-xs'
+  = f.submit class: 'btn btn-primary rounded-full w-full'

@@ -2,7 +2,8 @@ class Admin::ReservationsController < Admin::BaseController
   before_action :set_reservation, only: %i[edit update show destroy]
 
   def index
-    @reservations = Reservation.all.order(start_time: :desc).page(params[:page])
+    @q = Reservation.ransack(params[:q])
+    @reservations = @q.result(distinct: true).order(start_time: :desc).page(params[:page])
   end
 
   def edit; end
