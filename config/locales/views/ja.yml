@@ -84,6 +84,7 @@ ja:
     new:
       title: お問い合わせ
       button: 送信
+      description: 本予約サービスに関するご感想やご要望はこちらから
     create:
       success: お問い合わせ内容を送信しました
       fail: お問い合わせ内容の送信に失敗しました
