@@ -1,0 +1,37 @@
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('.title')
+  .overflow-x-auto
+    table.table.mx-auto.mb-10
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:user_id))
+        td = @reservation.user_id
+      tr.text-center
+        th[scope="row"] = t(User.human_attribute_name(:full_name))
+        td = @user.decorate.full_name
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:reservation_type))
+        td = @reservation.reservation_type_i18n
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:reservation_date))
+        td = @reservation.reservation_date
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:reservation_time))
+        td = l(@reservation.reservation_time, format: :short)
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:start_time))
+        td = l(@reservation.start_time, format: :long)
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:deleted_at))
+        - if @reservation.deleted_at.present?
+          td = l(@reservation.deleted_at, format: :long)
+        - else
+          td = '---'
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:created_at))
+        td = l(@reservation.created_at, format: :long)
+      tr.text-center
+        th[scope="row"] = t(Reservation.human_attribute_name(:updated_at))
+        td = l(@reservation.updated_at, format: :long)
+    .text-center.mb-10
+      = link_to t('defaults.edit'), edit_admin_reservation_path(@reservation), class: 'btn btn-primary btn-wide rounded-full'

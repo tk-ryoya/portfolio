@@ -19,6 +19,10 @@ ja:
     contact: お問い合わせ
     profile: 会員情報
     profile_edit: 会員情報変更
+    edit: 編集
+    update: 更新
+    admin_view: 管理画面
+    delete: 削除
   users:
     new:
       title: 会員登録画面
@@ -87,3 +91,23 @@ ja:
     update:
       success: 会員情報を変更しました
       fail: 会員情報を変更できませんでした
+
+  admin:
+    users:
+      index:
+        title: 会員一覧
+        details: 詳細
+      update:
+        success: 更新しました
+      destroy:
+        success: 削除しました
+    reservations:
+      index:
+        title: 予約一覧
+        details: 詳細
+      show:
+        title: 予約情報
+      update:
+        success: 更新しました
+      destroy:
+        success: 削除しました

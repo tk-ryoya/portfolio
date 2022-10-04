@@ -1,0 +1,40 @@
+.max-w-md.my-10.mx-auto
+  h1.mb-10.text-5xl.font-bold.text-center
+    = t('admin.reservations.show.title')
+  = form_with model: @reservation, url: admin_reservation_path(@reservation), local: true do |f|
+    = render 'shared/error_messages', object: f.object
+    .card.w-96.bg-base-100.shadow-xl.mx-auto
+      .card-body
+        .form_control
+          label.label
+            span.label-text
+              = f.label :user_id
+            = f.number_field :user_id, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_type
+            = f.select :reservation_type, options_for_select(Reservation.reservation_types.keys)
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_date
+            = f.date_field :reservation_date, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :reservation_time
+            = f.time_field :reservation_time, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :start_time
+            = f.datetime_field :start_time, class: 'input input-bordered', placeholder: true
+        .form_control
+          label.label
+            span.label-text
+              = f.label :deleted_at
+            = f.datetime_field :deleted_at, class: 'input input-bordered', placeholder: true
+        .form_control.mx-auto
+          button.btn.btn-primary.btn-wide.rounded-full
+            = t('defaults.update')
