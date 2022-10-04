@@ -47,7 +47,8 @@ README〜ER図作成：8/15 〆切
 [画面遷移図](https://www.figma.com/file/lQEcnkcNB7vsQtcLOe8gAM/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3_%E6%95%B4%E9%AA%A8%E9%99%A2%E4%BA%88%E7%B4%84%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9?node-id=11%3A21)
 
 ## ■ER図
-![ReservationService-ページ1 drawio](https://user-images.githubusercontent.com/94113387/189517301-b2064aae-af89-4622-bd03-49d7a79c085d.png)
+![ReservationService-ページ1 drawio (1)](https://user-images.githubusercontent.com/94113387/193758302-ac44a667-cb22-43c9-84b3-ac4a35335d68.png)
+
 
 
 
