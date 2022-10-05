@@ -40,3 +40,5 @@
 /.env
 
 credentials.json
+
+/public/sitemap.xml.gz
