@@ -10,7 +10,7 @@ module ApplicationHelper
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
       icon: [
-        { href: image_url('/assets/images/favicon.ico.png') },
+        { href: image_url('favicon.ico') },
         { href: image_url(''), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
       ],
       og: {
@@ -19,7 +19,7 @@ module ApplicationHelper
         description: '親の代から続く30年以上の歴史がある整骨院です。 施術以外にも健康管理や、健康維持の仕方などをアドバイスします。',
         type: 'website',
         url: request.original_url,
-        image: image_url('/assets/images/ogp.png'),
+        image: image_url('ogp.png'),
         locale: 'ja_JP',
       },
       twitter: {
