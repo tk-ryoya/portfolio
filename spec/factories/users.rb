@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
-    last_name { "滋賀" }
-    first_name { "琵琶子" }
-    last_name_kana { "シガ" }
-    first_name_kana { "ビワコ" }
+    last_name { "草津" }
+    first_name { "太郎" }
+    last_name_kana { "クサツ" }
+    first_name_kana { "タロウ" }
     tel { "12345678910" }
     sequence(:email) { |n| "user_#{n}@example.com" }
     password { "password" }
