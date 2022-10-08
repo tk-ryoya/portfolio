@@ -30,6 +30,7 @@ class ReservationsController < ApplicationController
     @reservation.delete!
     # calendar.delete(event_id)
     redirect_to reservations_path, success: t('.success')
+    CancelMailer.cancel_notification(@reservation, current_user).deliver_now
   end
 
   private
