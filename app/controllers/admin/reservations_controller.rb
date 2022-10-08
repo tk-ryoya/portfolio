@@ -35,6 +35,6 @@ class Admin::ReservationsController < Admin::BaseController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :reservation_type, :reservation_date, :reservation_time, :start_time)
+    params.require(:reservation).permit(:user_id, :reservation_type, :reservation_date, :reservation_time, :start_time, :deleted_at)
   end
 end
