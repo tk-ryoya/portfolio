@@ -7,7 +7,6 @@
     table.table.table-compact.mx-auto
       thead
         tr.text-center
-          th = sort_link(@q, :id, 'id')
           th = User.human_attribute_name('full_name')
           th = User.human_attribute_name('tel')
           th = User.human_attribute_name('email')
@@ -15,7 +14,6 @@
       tbody
       - @users.each do |user|
         tr.text-center
-          td = user.id
           td = user.decorate.full_name
           td = user.tel
           td = user.email

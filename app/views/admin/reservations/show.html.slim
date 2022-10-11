@@ -4,9 +4,6 @@
   .overflow-x-auto
     table.table.mx-auto.mb-10
       tr.text-center
-        th[scope="row"] = t(Reservation.human_attribute_name(:user_id))
-        td = @reservation.user_id
-      tr.text-center
         th[scope="row"] = t(User.human_attribute_name(:full_name))
         td = @user.decorate.full_name
       tr.text-center
