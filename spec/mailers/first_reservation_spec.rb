@@ -1,10 +1,11 @@
 require "rails_helper"
 
-RSpec.describe AdminMailer, type: :mailer do
+RSpec.describe FirstReservationMailer, type: :mailer do
   describe '管理者へ予約完了の通知メール' do
     let(:user) { create(:user) }
     let(:reservation) { create(:reservation, user: user) }
-    let(:mail) { AdminMailer.reservation_notification(reservation, user) }
+    let(:first_interview) { create(:first_interview) }
+    let(:mail) { FirstReservationMailer.reservation_notification(reservation, user, first_interview.description) }
     wd = ["日", "月", "火", "水", "木", "金", "土"]
 
     it '送信用のメールアドレスから送信されていること' do
@@ -29,6 +30,10 @@ RSpec.describe AdminMailer, type: :mailer do
 
     it 'メール本文に予約日時が表示されていること' do
       expect(mail.html_part.body.to_s).to include(reservation.start_time.strftime("%m月%d日(#{wd[reservation.start_time.wday]}) %H:%M"))
+    end
+
+    it 'メール本文に予約詳細が表示されていること' do
+      expect(mail.html_part.body.to_s).to match(first_interview.description)
     end
   end
 end
