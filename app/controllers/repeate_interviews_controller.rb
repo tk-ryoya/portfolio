@@ -14,7 +14,7 @@ class RepeateInterviewsController < ApplicationController
     if @repeate_reservation.save
       redirect_to reservations_path, success: t('.success')
       # calendar.set_event("再診予約", "予約番号:  " + "「#{reservation.id}」", reservation_start_time, reservation_end_time)
-      AdminMailer.reservation_notification(reservation, current_user).deliver_now
+      RepeateReservationMailer.reservation_notification(reservation, current_user, @repeate_interview.description).deliver_now
     else
       flash.now[:error] = t('.fail')
       render :new
