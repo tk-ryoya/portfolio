@@ -6,7 +6,7 @@
       = t('.description')
     - else
       = t('.before_login_description')
-  .container
+  .mx-auto
     = week_calendar events: @reservations do |date, reservations|
       = date.day
     .container.my-10
