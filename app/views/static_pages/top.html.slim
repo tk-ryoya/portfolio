@@ -9,14 +9,14 @@
   .mx-auto
     = week_calendar events: @reservations do |date, reservations|
       = date.day
-    .container.my-10
+    .mx-auto.my-10
       .text-3xl.font-bold
         = t('defaults.closed_days')
       table.table.mx-auto
         - BusinessCalendar.temporary_closed_day.each do |temporary_closed_day|
           tr.text-center.text-2xl.font-bold
             td = temporary_closed_day
-    .container.my-10
+    .mx-auto.my-10
       .text-3xl.font-bold
         = t('defaults.closed_days_pm')
       table.table.mx-auto
