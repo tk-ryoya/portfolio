@@ -3,5 +3,7 @@ class StaticPagesController < ApplicationController
 
   def top
     @reservations = Reservation.all.where("reservation_date >= ?", Date.current).where("reservation_date < ?", Date.current >> 3).order(reservation_date: :desc)
+
+    @closed_days = ClosedDay.all
   end
 end

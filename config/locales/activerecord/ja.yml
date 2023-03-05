@@ -51,9 +51,12 @@ ja:
   time:
     formats:
       short: "%H:%M"
+  date:
+    formats:
+      long: ! "%-m月%-d日"
   simple_calendar:
-    previous: 前へ
-    next: 次へ
+    previous: ←前
+    next: 次→
     week: 予約カレンダー
     time: 時間
     this_week: 今週
