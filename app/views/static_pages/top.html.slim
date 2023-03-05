@@ -1,11 +1,6 @@
 .space-y-6.text-center
   .text-3xl.font-bold
     = t('defaults.service_name')
-  .text-2xl
-    - if logged_in?
-      = t('.description')
-    - else
-      = t('.before_login_description')
   .mx-auto
     = week_calendar events: @reservations do |date, reservations|
       = date.day
@@ -13,13 +8,13 @@
       .text-3xl.font-bold
         = t('defaults.closed_days')
       table.table.mx-auto
-        - BusinessCalendar.temporary_closed_day.each do |temporary_closed_day|
+        - @closed_days.each do |day|
           tr.text-center.text-2xl.font-bold
-            td = temporary_closed_day
+            td = l day.date, format: :long if day.closed_days
     .mx-auto.my-10
       .text-3xl.font-bold
         = t('defaults.closed_days_pm')
       table.table.mx-auto
-        - BusinessCalendar.temporary_closed_day_pm.each do |temporary_closed_day_pm|
+        - @closed_days.each do |day|
           tr.text-center.text-2xl.font-bold
-            td = temporary_closed_day_pm
+            td = l day, format: :long if day.closed_days_pm
