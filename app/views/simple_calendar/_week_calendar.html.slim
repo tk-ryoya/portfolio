@@ -4,47 +4,48 @@
       = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-default btn-lg rounded-full mx-2'
       = link_to t('simple_calendar.this_week', default: 'Previous'), root_path, class: 'btn btn-default btn-lg rounded-full mx-2'
       = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-default btn-lg rounded-full mx-2'
-  table.table.mx-auto
-    thead
-      tr
-        th = t('simple_calendar.time')
-        - date_range.slice(0, 7).each do |day|
-          th = t('date.abbr_day_names')[day.wday]
-    tbody
-      - date_range.each_slice(7) do |week|
+  div.overflow-x-auto
+    table.table.table-compact.mx-auto
+      thead
         tr
-          td = week.first.month.to_s + "月"
-          - week.each do |day|
-            = content_tag :td, class: calendar.td_classes_for(day) do
-              - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block)
-                - capture_haml(day, sorted_events.fetch(day, []), &passed_block)
-              - else
-                - passed_block.call day, sorted_events.fetch(day, [])
-        - am_times.each do |time|
+          th = t('simple_calendar.time')
+          - date_range.slice(0, 7).each do |day|
+            th = t('date.abbr_day_names')[day.wday]
+      tbody
+        - date_range.each_slice(7) do |week|
           tr
-            td = time
+            td = week.first.month.to_s + "月"
             - week.each do |day|
-              td.bg-lime-100
-                - if day.wday == 0 || HolidayJp.holiday?(day) || ClosedDay.schedules.include?(day)
-                  = '休'
+              = content_tag :td, class: calendar.td_classes_for(day) do
+                - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block)
+                  - capture_haml(day, sorted_events.fetch(day, []), &passed_block)
                 - else
-                  - if logged_in?
-                    = link_to new_reservation_path(day: day, time: time) do
-                      = '○'
+                  - passed_block.call day, sorted_events.fetch(day, [])
+          - am_times.each do |time|
+            tr
+              td = time
+              - week.each do |day|
+                td.bg-lime-100
+                  - if day.wday == 0 || HolidayJp.holiday?(day) || ClosedDay.schedules.include?(day)
+                    = '休'
                   - else
-                    = link_to login_path do
-                      = '○'
-        - pm_times.each do |time|
-          tr
-            td = time
-            - week.each do |day|
-              td.bg-lime-100
-                - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day) || ClosedDay.schedules.include?(day)
-                  = '休'
-                - else
-                  - if logged_in?
-                    = link_to new_reservation_path(day: day, time: time) do
-                      = '○'
+                    - if logged_in?
+                      = link_to new_reservation_path(day: day, time: time) do
+                        = '○'
+                    - else
+                      = link_to login_path do
+                        = '○'
+          - pm_times.each do |time|
+            tr
+              td = time
+              - week.each do |day|
+                td.bg-lime-100
+                  - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day) || ClosedDay.schedules.include?(day)
+                    = '休'
                   - else
-                    = link_to login_path do
-                      = '○'
+                    - if logged_in?
+                      = link_to new_reservation_path(day: day, time: time) do
+                        = '○'
+                    - else
+                      = link_to login_path do
+                        = '○'
