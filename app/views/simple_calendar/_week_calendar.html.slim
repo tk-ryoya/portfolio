@@ -26,7 +26,7 @@
               td = time
               - week.each do |day|
                 td.bg-lime-100
-                  - if day.wday == 0 || HolidayJp.holiday?(day) || ClosedDay.schedules.include?(day)
+                  - if day.wday == 0 || HolidayJp.holiday?(day) || ClosedDay.closed_am.include?(day)
                     = '休'
                   - else
                     - if logged_in?
@@ -40,7 +40,7 @@
               td = time
               - week.each do |day|
                 td.bg-lime-100
-                  - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day) || ClosedDay.schedules.include?(day)
+                  - if day.wday == 0 || day.wday == 6 || HolidayJp.holiday?(day) || ClosedDay.closed_am.include?(day) || ClosedDay.closed_pm.include?(day)
                     = '休'
                   - else
                     - if logged_in?
