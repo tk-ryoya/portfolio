@@ -17,4 +17,4 @@
       table.table.mx-auto
         - @closed_days.each do |day|
           tr.text-center.text-2xl.font-bold
-            td = l day, format: :long if day.closed_days_pm
+            td = l day.date, format: :long if day.closed_days_pm
